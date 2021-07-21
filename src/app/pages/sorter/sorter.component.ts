@@ -1,6 +1,7 @@
 import { BaseService } from './../../shared/services/base.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-sorter',
@@ -12,10 +13,17 @@ export class SorterComponent implements OnInit {
   public teamCopy;
   public hasBeenSorted = false;
 
-  constructor(private base: BaseService, private router: Router) { }
+  constructor(private base: BaseService, private router: Router, private titleService: Title) { }
 
   ngOnInit(): void {
     this.getTeam(this.router.url);
+    this.setAppTitle();
+  }
+
+  private setAppTitle() {
+    let appTitle = this.router.url.replace('/', '');
+    appTitle = appTitle.charAt(0).toUpperCase() + appTitle.slice(1);
+    this.titleService.setTitle(`${appTitle} Daily`);
   }
 
   async getTeam(teamName) {
