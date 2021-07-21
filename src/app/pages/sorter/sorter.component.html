@@ -4,7 +4,7 @@
       <div class="to-cancel" *ngFor="let m of team" [ngClass]="{ canceled: m.isCanceled }" (click)="cancel(m)">
         <img cross-origin="anonymous" src="{{ m.picture }}" [alt]="m.name" [title]="m.name"
           class="my-2 mini-member-pic" />
-
+          <span>{{ m.name }}</span>
       </div>
     </div>
   </div>
