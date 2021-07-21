@@ -1,34 +1,19 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-12 d-flex align-itens-center justify-content-center m-b-50">
-      <div
-        class="to-cancel"
-        *ngFor="let m of team"
-        [ngClass]="{ canceled: m.isCanceled }"
-        (click)="cancel(m)"
-      >
-        <img
-          src="{{ m.picture }}"
-          [alt]="m.name"
-          class="my-2 mini-member-pic"
-        />
+      <div class="to-cancel" *ngFor="let m of team" [ngClass]="{ canceled: m.isCanceled }" (click)="cancel(m)">
+        <img cross-origin="anonymous" src="{{ m.picture }}" [alt]="m.name" [title]="m.name"
+          class="my-2 mini-member-pic" />
+
       </div>
     </div>
   </div>
-  <div
-    class="img-grid"
-    *ngIf="team || teamCopy"
-    [ngClass]="'has-' + teamCopy.length"
-  >
+  <div class="img-grid" *ngIf="team || teamCopy" [ngClass]="'has-' + teamCopy.length">
     <div class="img-section" *ngFor="let member of teamCopy; let i = index">
       <div class="img-wrapper">
-        <img
-          [src]="
-            hasBeenSorted ? member.picture : 'assets/images/question-mark.svg'
-          "
-          [alt]="hasBeenSorted ? member.name : '???'"
-          class="mb-3 member-pic"
-        />
+        <img cross-origin="anonymous" [src]="
+            hasBeenSorted ? member.picture : 'assets/images/question-mark.svg'"
+          [alt]="hasBeenSorted ? member.name : '???'" class="mb-3 member-pic" />
         <h5 class="member-name text-center">
           {{ hasBeenSorted ? member.name : "???" }}
         </h5>
@@ -36,13 +21,7 @@
       </div>
     </div>
   </div>
-  <button
-    type="button"
-    name=""
-    id=""
-    class="btn btn-primary btn-lg floating-btn"
-    (click)="sort()"
-  >
+  <button type="button" name="" id="" class="btn btn-primary btn-lg floating-btn" (click)="sort()">
     <img src="assets/images/play.svg" alt="play" class="play" />
   </button>
 </div>

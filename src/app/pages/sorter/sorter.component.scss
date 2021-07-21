@@ -43,30 +43,45 @@
     grid-template-columns: repeat(4, 1fr);
     .member-pic {
       height: 150px;
+      width: 150px;
+      object-fit: contain;
+      object-position: center;
     }
   }
   &.has-12 {
     grid-template-columns: repeat(4, 1fr);
     .member-pic {
       height: 150px;
+      width: 150px;
+      object-fit: contain;
+      object-position: center;
     }
   }
   &.has-13 {
     grid-template-columns: repeat(5, 1fr);
     .member-pic {
       height: 150px;
+      width: 150px;
+      object-fit: contain;
+      object-position: center;
     }
   }
   &.has-14 {
     grid-template-columns: repeat(5, 1fr);
     .member-pic {
       height: 150px;
+      width: 150px;
+      object-fit: contain;
+      object-position: center;
     }
   }
   &.has-15 {
     grid-template-columns: repeat(5, 1fr);
     .member-pic {
       height: 150px;
+      width: 150px;
+      object-fit: contain;
+      object-position: center;
     }
   }
 }
@@ -91,6 +106,9 @@
     border: 4px white solid;
     border-radius: 8px;
     height: 230px;
+    width: 230px;
+    object-fit: contain;
+    object-position: center;
   }
   .member-name {
     color: white;
@@ -122,6 +140,9 @@
   }
   .mini-member-pic {
     height: 60px;
+    width: 60px;
+    object-fit: contain;
+    object-position: center;
     border: 2px solid white;
     border-radius: 8px;
   }
