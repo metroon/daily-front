@@ -153,9 +153,13 @@
     object-position: center;
     border: 2px solid white;
     border-radius: 8px;
+    &.canceled{
+      opacity: 0.6;
+      border-color: red;
+    }
   }
   &.canceled {
-    filter: grayscale(1);
+    // filter: grayscale(1);
     position: relative;
     overflow: hidden;
     &::after {
@@ -165,7 +169,7 @@
       height: 88%;
       top: 50%;
       right: 50%;
-      background-color: white;
+      background-color: red;
       transform: translateY(-58%) rotate(45deg);
     }
   }
@@ -200,4 +204,9 @@
     bottom: 75px;
     box-shadow: 0 0 0 rgba(0, 0, 0, 0.5) !important;
   }
+}
+
+.name-canceled{
+  color: red;
+  font-weight: bold;
 }
