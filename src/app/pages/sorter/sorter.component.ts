@@ -30,7 +30,8 @@ export class SorterComponent implements OnInit {
     this.team = (await this.base.get(`${teamName}.json`).toPromise()).map(el => {
       el.isCanceled = false;
       return el;
-    }).sort((a, b) => a.name - b.name);
+    }).sort((a, b) => a.name > b.name ? 1 : -1);
+    console.log("TEAM", this.team);
     this.teamCopy = this.team.filter(el => !el.isCanceled)
   }
 
