@@ -35,7 +35,7 @@ export class SorterComponent implements OnInit {
     this.teamCopy = this.team.filter(el => !el.isCanceled)
   }
 
-  sort() {
+  startSorter() {
     let counter = 0;
     let interval = setInterval(() => {
       this.teamCopy = this.shuffle(this.teamCopy);
