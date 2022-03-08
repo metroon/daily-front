@@ -47,6 +47,10 @@ export class SorterComponent implements OnInit {
     this.hasBeenSorted = true;
   }
 
+  resetPage() {
+    window.location.reload();
+  }
+
   shuffle(array) {
     let currentIndex = array.length,
       randomIndex;
