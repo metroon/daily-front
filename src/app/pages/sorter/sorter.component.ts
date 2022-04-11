@@ -38,7 +38,7 @@ export class SorterComponent implements OnInit {
     let counter = 0;
     let interval = setInterval(() => {
       this.teamCopy = this.shuffle(this.teamCopy);
-      if (counter >= 30) {
+      if (counter >= 20) {
         clearInterval(interval);
       }
       counter++;
@@ -54,7 +54,7 @@ export class SorterComponent implements OnInit {
     let currentIndex = array.length,
       randomIndex;
 
-    for (let index = 0; index < array.length; index++) {
+    while (0 !== currentIndex) {
       randomIndex = Math.floor(Math.random() * array.length);
       currentIndex--;
       [array[currentIndex], array[randomIndex]] = [
@@ -63,16 +63,16 @@ export class SorterComponent implements OnInit {
       ];
     }
 
-    // while (0 !== currentIndex) {
-    //   randomIndex = Math.floor(Math.random() * array.length);
-    //   currentIndex--;
-    //   [array[currentIndex], array[randomIndex]] = [
-    //     array[randomIndex],
-    //     array[currentIndex],
-    //   ];
-    // }
-
     return array;
+  }
+
+  generateRandom(maxLimit = 100) {
+    let rand = Math.random() * maxLimit;
+    console.log(rand); // say 99.81321410836433
+
+    rand = Math.floor(rand); // 99
+
+    return rand;
   }
 
   cancel(member) {
