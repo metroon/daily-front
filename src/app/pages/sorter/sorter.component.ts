@@ -31,7 +31,6 @@ export class SorterComponent implements OnInit {
       el.isCanceled = false;
       return el;
     }).sort((a, b) => a.name > b.name ? 1 : -1);
-    console.log("TEAM", this.team);
     this.teamCopy = this.team.filter(el => !el.isCanceled)
   }
 
@@ -55,14 +54,23 @@ export class SorterComponent implements OnInit {
     let currentIndex = array.length,
       randomIndex;
 
-    while (0 !== currentIndex) {
-      randomIndex = Math.floor(Math.random() * currentIndex);
+    for (let index = 0; index < array.length; index++) {
+      randomIndex = Math.floor(Math.random() * array.length);
       currentIndex--;
       [array[currentIndex], array[randomIndex]] = [
         array[randomIndex],
         array[currentIndex],
       ];
     }
+
+    // while (0 !== currentIndex) {
+    //   randomIndex = Math.floor(Math.random() * array.length);
+    //   currentIndex--;
+    //   [array[currentIndex], array[randomIndex]] = [
+    //     array[randomIndex],
+    //     array[currentIndex],
+    //   ];
+    // }
 
     return array;
   }
