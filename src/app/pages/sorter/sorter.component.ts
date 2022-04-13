@@ -38,7 +38,7 @@ export class SorterComponent implements OnInit {
     let counter = 0;
     let interval = setInterval(() => {
       this.teamCopy = this.shuffle(this.teamCopy);
-      if (counter >= 20) {
+      if (counter >= 25) {
         clearInterval(interval);
       }
       counter++;
