@@ -10,14 +10,28 @@ import { Title } from '@angular/platform-browser';
 })
 export class SorterComponent implements OnInit {
   public team;
+  public teamGroup = [];
   public teamCopy;
   public hasBeenSorted = false;
 
   constructor(private base: BaseService, private router: Router, private titleService: Title) { }
 
-  ngOnInit(): void {
-    this.getTeam(this.router.url);
+  async ngOnInit() {
+    await this.getTeam(this.router.url);
     this.setAppTitle();
+    this.setTemGroups();
+  }
+
+  private setTemGroups() {
+    let teamLines = this.team.length / 8;
+    let startSlice = 0;
+    let endSlice = 8;
+    for (let index = 0; index < teamLines; index++) {
+      console.log(this.team.slice(startSlice, endSlice));
+      this.teamGroup[index] = this.team.slice(startSlice, endSlice);
+      startSlice = endSlice;
+      endSlice = endSlice + (endSlice + 1);
+    }
   }
 
   private setAppTitle() {
