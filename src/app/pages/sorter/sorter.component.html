@@ -1,14 +1,14 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-12 d-flex align-itens-center justify-content-center m-b-50">
-      <div class="to-cancel" *ngFor="let m of team" [ngClass]="{ canceled: m.isCanceled }" (click)="cancel(m)">
+    <div class="col-12 d-flex align-itens-center justify-content-center mb-3" *ngFor="let group of teamGroup">
+      <div class="to-cancel" *ngFor="let m of group" [ngClass]="{ canceled: m.isCanceled }" (click)="cancel(m)">
         <img cross-origin="anonymous" src="{{ m.picture }}" [alt]="m.name" [title]="m.name" class="my-2 mini-member-pic"
           [ngClass]="{ canceled: m.isCanceled }" />
         <span [ngClass]="{ 'name-canceled': m.isCanceled }">{{ m.name }}</span>
       </div>
     </div>
   </div>
-  <div class="img-grid" *ngIf="team || teamCopy" [ngClass]="'has-' + teamCopy.length">
+  <div class="img-grid mt-5" *ngIf="team || teamCopy" [ngClass]="'has-' + teamCopy.length">
     <div class="img-section" *ngFor="let member of teamCopy; let i = index">
       <div class="img-wrapper">
         <img cross-origin="anonymous" [src]="
