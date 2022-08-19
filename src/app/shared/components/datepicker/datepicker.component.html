@@ -1,0 +1,19 @@
+<div class="input-group custom-datepicker">
+  <input
+    class="form-control"
+    [placeholder]="placeholder"
+    name="d2"
+    [(ngModel)]="finalDate"
+    ngbDatepicker
+    #d2="ngbDatepicker"
+    [minDate]="minDate"
+    #idDatePicker
+    (keydown)="checkCanType($event)"
+    (click)="d2.open()"
+    autocomplete="off"
+    [maxlength]="format.length"
+  />
+  <button class="btn" (click)="d2.toggle()" type="button">
+    <i class="fa fa-calendar"></i>
+  </button>
+</div>

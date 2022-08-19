@@ -1,0 +1,9 @@
+@import "~bootstrap/scss/bootstrap";
+@import "theme/variables";
+@import "~ngx-toastr/toastr";
+@import "style";
+@import "theme/responsive";
+
+.clickable {
+  cursor: pointer;
+}

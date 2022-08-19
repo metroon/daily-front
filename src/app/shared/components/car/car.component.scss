@@ -1,0 +1,23 @@
+svg {
+  filter: drop-shadow(1px 0 0 #ffffff) drop-shadow(-1px 0 0 #ffffff)
+    drop-shadow(0 1px 0 #ffffff) drop-shadow(0 -1px 0 #ffffff);
+  height: 100%;
+
+  max-width: 100%;
+  &.racing {
+    .wheel {
+      animation: spin 0.1s linear 0s;
+      transform-origin: center;
+      transform-box: fill-box;
+    }
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}

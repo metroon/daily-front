@@ -1,0 +1,105 @@
+<div
+  class="grass-bg vh-100 d-flex flex-column justify-content-between user-select-none"
+  [class.big-race]="teamCopy && teamCopy.length > 10"
+>
+  <div class="d-flex justify-content-center w-75 mx-auto my-3 flex-shrink-1">
+    <div
+      class="to-cancel"
+      [style.flexBasis]="percentage + '%'"
+      *ngFor="let m of team"
+      [ngClass]="{ canceled: m.isCanceled }"
+      [class.clickable]="!racing || ended"
+      (click)="cancel(m)"
+    >
+      <div class="cross-wrapper">
+        <div class="avatar-wrapper">
+          <img [src]="m.picture" [alt]="m.name" srcset="" />
+        </div>
+        <span class="cancel-name" [style.backgroundColor]="m.color">{{
+          m.name
+        }}</span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="track"
+    [class.racing]="racing"
+    [style.transitionDuration]="racing ? minRaceTime / 2 + 's' : '0s'"
+    [style.transitionDelay]="racing ? minRaceTime / 2 + 's' : '0s'"
+  >
+    <div class="road" *ngFor="let member of teamCopy; index as i">
+      <div
+        class="d-flex align-items-center car"
+        [style.transitionDuration]="member.time + 's'"
+        [style.transitionTimingFunction]="member.easingFunction"
+      >
+        <div class="avatar-wrapper">
+          <div
+            class="avatar"
+            [style.backgroundImage]="'url(' + member.picture + ')'"
+          ></div>
+        </div>
+        <app-car
+          class="w-100 h-100 clickable"
+          [color]="member.color"
+          [racing]="racing"
+          [time]="member.time"
+          [cpPosition]="'right'"
+          [cpPositionOffset]="'50%'"
+          [cpPositionRelativeToArrow]="true"
+          [(colorPicker)]="member.color"
+        ></app-car>
+      </div>
+      <h5
+        class="position"
+        [class.first]="member.position == '01'"
+        [class.second]="member.position == '02'"
+        [class.third]="member.position == '03'"
+        [style.transitionDelay]="member.time + 's'"
+      >
+        <div>{{ member.position }}</div>
+        <div>{{ member.name | slice: 0:3 }}</div>
+      </h5>
+    </div>
+  </div>
+
+  <div class="flex-shrink-1 mb-5 mt-3"></div>
+
+  <div class="run" (click)="run()" [class.active]="racing">
+    <app-feather-icons icon="flag" class="d-flex"></app-feather-icons>
+  </div>
+  <div class="open-score" *ngIf="ended" (click)="isVisible = true">
+    <app-feather-icons icon="list"></app-feather-icons>
+  </div>
+
+  <div class="open-original" (click)="goToOriginal()">
+    <app-feather-icons icon="grid"></app-feather-icons>
+  </div>
+</div>
+<div
+  class="leaderboard-overlay"
+  [class.show-scoreboard]="ended && isVisible"
+  [class.big-race]="teamCopy && teamCopy.length > 10"
+  (click)="isVisible = !isVisible"
+>
+  <div class="leaderboard user-select-none" (click)="$event.stopPropagation()">
+    <div class="leaderboard-header"></div>
+    <div class="leaderboard-body">
+      <div class="d-flex flex-column">
+        <div
+          class="d-flex align-items-center leaderboard-row"
+          *ngFor="let member of finalTeamSorted"
+          [style.backgroundColor]="member.color"
+        >
+          <div class="position-container">
+            <h5>#{{ member.position }}</h5>
+          </div>
+          <div class="avatar-wrapper">
+            <img [src]="member.picture" [alt]="member.name" class="avatar" />
+          </div>
+          <p class="pe-3">{{ member.name }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<!-- Page Header Start-->
+<div
+  class="page-main-header"
+  [ngClass]="{ open: navServices.collapseSidebar }"
+  id="page-main-header"
+>
+  <div
+    class="main-header-right justify-content-arround justify-content-md-start"
+  >
+    <div class="main-header-left d-lg-none order-2 order-md-1 flex-grow-1">
+      <div class="logo-wrapper d-flex d-md-block justify-content-center">
+        <a href="javascript::void(0)"
+          ><img
+            class="w-75"
+            src="assets/images/Logo_Dragon_horizontal.svg"
+            alt=""
+        /></a>
+      </div>
+    </div>
+    <div class="mobile-sidebar order-1 order-md-2">
+      <div class="media-body text-right switch-sm">
+        <label class="switch">
+          <a href="javascript:void(0)" (click)="collapseSidebar()">
+            <app-feather-icons
+              id="sidebar-toggle"
+              [icon]="'align-left'"
+            ></app-feather-icons>
+          </a>
+        </label>
+      </div>
+    </div>
+    <div class="filler order-3"></div>
+  </div>
+</div>
+<!-- Page Header Ends -->
