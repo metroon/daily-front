@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { lastValueFrom } from 'rxjs';
 import { Member } from 'src/app/shared/models/member';
 import { MemberRaw } from 'src/app/shared/models/member-raw';
+import { LocalStorageService } from 'src/app/shared/services/local-storage.service';
 import { TeamService } from 'src/app/shared/services/team.service';
 
 @Component({
@@ -48,18 +49,22 @@ export class RaceComponent implements OnInit {
   public usedColors = [...this.colors];
 
   public racing = false;
-  public minRaceTime = 8;
   public scoreTimeOut;
   public percentage = 0;
+
+  public minRaceTime = 8;
+  public bigRaceLimit = 12;
 
   constructor(
     private teamService: TeamService,
     private router: Router,
-    private titleService: Title
+    private titleService: Title,
+    private localStorage: LocalStorageService
   ) {}
 
   ngOnInit(): void {
     this.teamName = this.router.url.split('/').pop();
+    this.team = this.localStorage.getItem('TEAM');
     this.getTeam(this.teamName);
     this.setAppTitle();
   }
@@ -71,7 +76,12 @@ export class RaceComponent implements OnInit {
   }
 
   async getTeam(teamName) {
-    let team = await lastValueFrom(this.teamService.get(teamName));
+    let team;
+    if (!this.team[0]) {
+      team = await lastValueFrom(this.teamService.get(teamName));
+    } else {
+      team = this.team;
+    }
     this.team = team
       .sort((a, b) => a.name - b.name)
       .map((mr: MemberRaw, i) => {

@@ -1,0 +1,12 @@
+<p>dashboard works!</p>
+<pre>{{ user | json }}</pre>
+<button
+  class="btn btn-primary me-3"
+  *ngFor="let org of organizations"
+  (click)="getOrganizationUsers(org.id)"
+>
+  {{ org.name }}
+</button>
+<pre>{{ organizationsUser | json }}</pre>
+
+<button class="btn btn-primary me-3" (click)="goToRace()">🏁</button>
