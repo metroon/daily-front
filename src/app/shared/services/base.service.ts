@@ -1,32 +1,33 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BaseService {
-  private baseUrl = 'assets/data'
+  private BASE_URL = environment.baseUrl;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   get(url: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}/${url}`);
+    return this.http.get(`${this.BASE_URL}/${url}`);
   }
 
   post(url: string, body: any): Observable<any> {
-    return this.http.post(`${this.baseUrl}/${url}`, body);
+    return this.http.post(`${this.BASE_URL}/${url}`, body);
   }
 
   put(url: string, body: any): Observable<any> {
-    return this.http.put(`${this.baseUrl}/${url}`, body);
+    return this.http.put(`${this.BASE_URL}/${url}`, body);
   }
 
   patch(url: string, body: any): Observable<any> {
-    return this.http.patch(`${this.baseUrl}/${url}`, body);
+    return this.http.patch(`${this.BASE_URL}/${url}`, body);
   }
 
   delete(url: string): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${url}`);
+    return this.http.delete(`${this.BASE_URL}/${url}`);
   }
 }

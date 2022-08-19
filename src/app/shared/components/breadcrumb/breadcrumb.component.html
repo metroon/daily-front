@@ -1,0 +1,19 @@
+<div class="page-header-left">
+  <h3>{{ activeBreadcrumb$ | async }}</h3>
+  <ol class="breadcrumb">
+    <li
+      class="breadcrumb-item clickable"
+      *ngFor="let item of breadcrumbs$ | async"
+      [ngClass]="{ active: item.active }"
+      [routerLink]="[item.path]"
+    >
+      <div *ngIf="item.icon; else elseTemplate">
+        <a href="#">
+          <app-feather-icons [icon]="item?.icon"></app-feather-icons>
+        </a>
+      </div>
+
+      <ng-template #elseTemplate> {{ item?.title }}</ng-template>
+    </li>
+  </ol>
+</div>

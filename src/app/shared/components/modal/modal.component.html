@@ -1,0 +1,35 @@
+<ng-template #modal>
+  <div class="modal-header">
+    <h5 class="modal-title">{{ modalData?.title }}</h5>
+
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="onClose()"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <ng-content></ng-content>
+  </div>
+  <div class="modal-footer flex-row-reverse justify-content-between">
+    <button
+      *ngIf="buttonVisible"
+      type="button"
+      class="btn m-0"
+      [ngClass]="isDelete ? 'btn-confirm-bottom' : 'btn-primary'"
+      (click)="onResult()"
+    >
+      {{ modalData?.confirmButtonLabel }}
+    </button>
+    <button
+      *ngIf="buttonVisible"
+      type="button"
+      class="btn btn-outline-primary m-0"
+      (click)="onClose()"
+      [ngClass]="{ hidden: modalData?.hiddenCloseButton }"
+    >
+      {{ modalData?.closeButtonLabel }}
+    </button>
+  </div>
+</ng-template>

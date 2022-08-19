@@ -1,0 +1,87 @@
+<div class="card mt-4">
+  <div class="card-body">
+    <div class="text-center">
+      <h4>Login</h4>
+      <h6>Insira suas credenciais</h6>
+    </div>
+    <form class="theme-form form-dowing" [formGroup]="loginForm">
+      <div class="form-group">
+        <label for="email" class="form-label">Email</label>
+        <input
+          class="form-control"
+          formControlName="email"
+          id="email"
+          type="email"
+          required=""
+          placeholder="Email"
+        />
+
+        <div class="input-error-wrapper">
+          <div
+            *ngIf="
+              loginForm.controls.email.touched &&
+              loginForm.controls.email.errors?.required
+            "
+            class="text text-danger mt-1"
+          >
+            Email é um campo obrigatório
+          </div>
+          <div
+            *ngIf="
+              loginForm.controls.email.touched &&
+              loginForm.controls.email.errors?.email
+            "
+            class="text text-danger mt-1"
+          >
+            Email inválido
+          </div>
+        </div>
+      </div>
+      <div class="form-group position-relative">
+        <label for="password" class="form-label">Senha</label>
+        <input
+          class="form-control"
+          type="password"
+          formControlName="password"
+          id="password"
+          required=""
+          placeholder="Senha"
+        />
+        <div class="input-error-wrapper">
+          <div
+            *ngIf="
+              loginForm.controls.password.touched &&
+              loginForm.controls.password.errors?.required
+            "
+            class="text text-danger mt-1"
+          >
+            Senha é um campo obrigatório
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <a
+          class="primary-text bold"
+          href="javascript:void()"
+          routerLink="forgot-password"
+        >
+          Esqueceu sua senha?
+        </a>
+      </div>
+      <div class="form-group form-row mt-0 mb-0 mx-0">
+        <button
+          class="btn btn-primary btn-block btn-lg mt-0"
+          [disabled]="!loginForm.valid || authService.showLoader"
+          (click)="login()"
+        >
+          <span *ngIf="!authService.showLoader">Entrar</span>
+          <app-loader
+            *ngIf="authService.showLoader"
+            color="white"
+            size="30px"
+          ></app-loader>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

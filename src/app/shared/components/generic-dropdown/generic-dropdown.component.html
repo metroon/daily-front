@@ -1,0 +1,45 @@
+<div class="form-group mb-0 w-100 position-relative dropdown-indicator">
+  <input type="text" autofocus="autofocus" class="d-none" />
+  <input
+    #selectItemInput
+    name="selectItem"
+    id="selectItem"
+    type="text"
+    class="form-control clickable"
+    (focus)="toggleDropdown()"
+    (blur)="blurDropdown()"
+    (keydown)="$event.preventDefault()"
+    [(ngModel)]="selectedItem[shownValue]"
+    [placeholder]="placeholder || 'Selecione'"
+    autocomplete="off"
+  />
+  <div
+    class="dropdown-icon clickable"
+    (click)="resetSelect()"
+    *ngIf="reset && selectItemInput.value.length"
+  >
+    <app-feather-icons
+      class="small font-dark-color"
+      icon="x"
+      title="Limpar Pesquisa"
+    >
+    </app-feather-icons>
+  </div>
+  <div
+    class="dropdown-icon clickable"
+    (click)="selectItemInput.focus()"
+    *ngIf="!reset || !selectItemInput.value.length"
+  >
+    <app-feather-icons class="small font-dark-color" icon="chevron-down">
+    </app-feather-icons>
+  </div>
+  <div class="dropdown-menu w-100" [ngClass]="{ show: isVisible }">
+    <div
+      class="dropdown-item clickable"
+      *ngFor="let item of filteredItems"
+      (click)="onItemSelect(item)"
+    >
+      {{ item[shownValue] }}
+    </div>
+  </div>
+</div>

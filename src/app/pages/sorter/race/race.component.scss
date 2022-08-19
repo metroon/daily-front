@@ -1,0 +1,341 @@
+$red: #ff4d4d;
+$yellow: #ffd300;
+$green: #0aff99;
+$black: #0b141b;
+$car-width: 100px;
+$track-padding: 50px;
+$distance: calc(200vw - $car-width - $track-padding);
+
+.grass-bg {
+  background-image: url("https://img.freepik.com/premium-vector/green-grass-texture-vector-background_87498-1221.jpg?w=100");
+  position: relative;
+  .track {
+    border-top: 3px solid white;
+    border-bottom: 3px solid white;
+    position: relative;
+    width: 200%;
+    transform: translateX(0%);
+    will-change: transform;
+    display: flex;
+    flex-wrap: wrap;
+    height: 60vh;
+    background-color: $black;
+    &::after {
+      content: "";
+      position: absolute;
+      width: $car-width;
+      height: 100%;
+      top: 0;
+      right: 0;
+      background: repeating-conic-gradient(white 0% 25%, $black 0% 50%) 50% /
+        16px 16px;
+    }
+    &.racing {
+      transition: transform 4s ease-out 4s;
+      transform: translateX(-50%);
+    }
+  }
+
+  .to-cancel {
+    max-width: 100px;
+    padding: 0 0.25rem;
+    .cross-wrapper {
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+    .cancel-name {
+      text-align: center;
+      color: #ffffff;
+      padding: 0.5rem 0;
+      width: 100%;
+      background-color: white;
+      border: 2px solid white;
+      border-top: 0;
+      font-family: "Fugaz One", "Montserrat", sans-serif;
+      font-size: 10px !important;
+      text-shadow: 0 0 2px black;
+    }
+    .avatar-wrapper {
+      background-color: rgb(255, 255, 255);
+      width: 100%;
+      height: 60px;
+      overflow: hidden;
+      position: relative;
+      border: 2px solid white;
+      border-bottom: 0;
+      img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        object-fit: cover;
+      }
+    }
+
+    &.canceled {
+      .cross-wrapper {
+        &:after,
+        &:before {
+          content: "";
+          position: absolute;
+          width: 2px;
+          height: 150%;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) rotate(45deg);
+          transform-origin: center;
+          background: white;
+          z-index: 1;
+        }
+        &:before {
+          transform: translate(-50%, -50%) rotate(-45deg);
+        }
+      }
+      .cancel-name {
+        color: rgba(255, 255, 255, 0.4);
+      }
+      .avatar-wrapper {
+        img {
+          filter: grayscale(1);
+        }
+      }
+    }
+  }
+}
+.car {
+  position: relative;
+  z-index: 1;
+  max-width: $car-width;
+  .avatar-wrapper {
+    position: absolute;
+    left: -10px;
+    top: 40%;
+    transform: translate(-100%, -50%) rotate(-45deg);
+    background: white;
+    border-radius: 50% 50% 0% 50%;
+    z-index: 1;
+    height: 100%;
+    aspect-ratio: 1/1 !important;
+    border: 1px solid white;
+    .avatar {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      transform: rotate(45deg);
+      background-position: center center;
+      background-size: cover;
+    }
+  }
+}
+.road {
+  position: relative;
+  padding: 8px 0 10px $track-padding;
+  width: 100%;
+  background-image: linear-gradient(
+    to right,
+    white 50%,
+    rgba(255, 255, 255, 0) 0%
+  );
+  background-position: bottom;
+  background-size: 40px 3px;
+  background-repeat: repeat-x;
+  flex: 0 0 auto;
+  display: flex;
+  &:last-child {
+    background-image: unset;
+  }
+}
+.position {
+  font-family: "Montserrat", sans-serif;
+  font-size: 32px;
+  position: absolute;
+  line-height: 1;
+  top: 50%;
+  right: calc($car-width * 2);
+  transform: translateY(-50%);
+  color: white;
+  text-align: right;
+  text-transform: uppercase;
+  font-family: "Fugaz One", "Montserrat", sans-serif;
+  z-index: 9;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &:before {
+    content: "";
+    position: absolute;
+    font-size: 24px;
+    margin-left: -50px;
+  }
+  &.first:before {
+    content: "🏆";
+  }
+  &.second:before {
+    content: "🥈";
+  }
+  &.third:before {
+    content: "🥉";
+  }
+}
+.big-race {
+  .track {
+    height: 75vh;
+  }
+  .road {
+    background-size: 40px 2px;
+    padding: 4px 0 4px $track-padding;
+  }
+}
+// Animations
+.car {
+  will-change: transform;
+  transition-property: transform;
+  transform: translateX(0);
+}
+
+.position {
+  opacity: 0;
+  transition-property: opacity;
+  will-change: opacity;
+}
+.racing {
+  .car {
+    transform: translateX($distance);
+  }
+  .position {
+    opacity: 1;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in;
+  }
+}
+
+.run {
+  cursor: pointer;
+  position: fixed;
+  top: 1rem;
+  left: 40px;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  background: $red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3) !important;
+  border: 4px solid white;
+  &:hover {
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2) !important;
+    background: $yellow;
+  }
+  &:active,
+  &.active {
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.3) !important;
+    background: $green !important;
+  }
+  & > * {
+    filter: invert(1) brightness(10);
+  }
+}
+.open-score {
+  cursor: pointer;
+  position: fixed;
+  top: 20px;
+  right: 40px;
+  color: white;
+  filter: drop-shadow(0 0 6px black);
+}
+.open-original {
+  cursor: pointer;
+  position: fixed;
+  bottom: 20px;
+  right: 40px;
+  color: white;
+  filter: drop-shadow(0 0 6px black);
+}
+.leaderboard-overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgba(11, 20, 27, 0.5);
+  place-items: center;
+  z-index: -1;
+  opacity: 0;
+  display: grid;
+  transition: opacity 0.5s ease-in-out;
+  .leaderboard {
+    max-height: 90vh;
+    min-width: 30%;
+    color: white;
+    font-family: "Fugaz One", "Montserrat", sans-serif;
+    .leaderboard-row {
+      margin-bottom: 5px;
+      background-image: linear-gradient(45deg, black, transparent);
+    }
+    .position-container {
+      padding: 0 1rem;
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+      min-width: 70px;
+    }
+    .avatar-wrapper {
+      margin-right: 1rem;
+      .avatar {
+        aspect-ratio: 3 / 2;
+        object-fit: cover;
+        object-position: center;
+        max-height: 60px;
+      }
+    }
+    p,
+    h5 {
+      margin: 0;
+    }
+    p {
+      font-size: 32px;
+    }
+  }
+  &.show-scoreboard {
+    opacity: 1;
+    z-index: 999;
+  }
+  &.big-race {
+    .leaderboard-body > div {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr;
+      place-content: center;
+      gap: 5px;
+      .leaderboard-row {
+        margin: 0;
+      }
+    }
+  }
+}
+
+@keyframes racing {
+  0% {
+    margin-left: 0%;
+  }
+  100% {
+    margin-left: calc(100% - $car-width);
+  }
+}
+
+@keyframes track {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
