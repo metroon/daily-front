@@ -35,28 +35,4 @@ export class ForgotPasswordComponent implements OnInit {
   ngOnInit() {
     this.localStorageService.clearLocalStorage();
   }
-
-  recoverPassword() {
-    if (this.recoverPasswordForm.valid) {
-      this.showLoader = true;
-      this.authService
-        // .requestChangePassword(this.recoverPasswordForm.value['recoveryEmail'])
-        // .subscribe((res) => (this.showLoader = false));
-        .loginMock(
-          this.recoverPasswordForm.value['recoveryEmail'],
-          this.recoverPasswordForm.value['recoveryEmail']
-        )
-        .subscribe({
-          next: (res) => {
-            this.router.navigate(['/']);
-          },
-          error: (err) => {
-            this.toastr.warning('E-mail ou Senha incorretos.');
-          },
-          complete: () => {
-            this.authService.showLoader = false;
-          },
-        });
-    }
-  }
 }
