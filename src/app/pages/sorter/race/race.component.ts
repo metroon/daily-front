@@ -52,7 +52,7 @@ export class RaceComponent implements OnInit {
   public scoreTimeOut;
   public percentage = 0;
 
-  public minRaceTime = 8;
+  public minRaceTime = 7;
   public bigRaceLimit = 12;
 
   constructor(
@@ -77,7 +77,7 @@ export class RaceComponent implements OnInit {
 
   async getTeam(teamName) {
     let team;
-    if (!this.team[0]) {
+    if (!this.team || !this.team[0]) {
       team = await lastValueFrom(this.teamService.get(teamName));
     } else {
       team = this.team;

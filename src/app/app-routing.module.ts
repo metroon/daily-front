@@ -21,15 +21,15 @@ const routes: Routes = [
     component: FullTemplateComponent,
     children: [
       {
+        path: 'login',
+        loadChildren: () =>
+          import('./pages/auth/auth.module').then((m) => m.AuthModule),
+      },
+      {
         path: '',
         loadChildren: () =>
           import('./pages/sorter/sorter.module').then((m) => m.SorterModule),
       },
-      // {
-      //   path: 'login',
-      //   loadChildren: () =>
-      //     import('./pages/auth/auth.module').then((m) => m.AuthModule),
-      // },
     ],
   },
   {

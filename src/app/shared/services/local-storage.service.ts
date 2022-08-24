@@ -25,7 +25,11 @@ export class LocalStorageService {
 
   public updateTokens(token: any) {
     this.setItem(Constants.TOKEN, token);
-    this.setItem(Constants.ACCESS_TOKEN, token.access_token);
+    this.setItem(Constants.ACCESS_TOKEN, token.accessToken);
+  }
+
+  public getUser() {
+    return JSON.parse(localStorage.getItem(Constants.TOKEN))?.user || null;
   }
 
   public clearLocalStorage() {

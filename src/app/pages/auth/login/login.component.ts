@@ -42,19 +42,14 @@ export class LoginComponent implements OnInit {
   login() {
     this.authService.showLoader = true;
     this.authService
-      // .login(this.loginForm.value['email'], this.loginForm.value['password'])
-      .loginMock(
-        this.loginForm.value['email'],
-        this.loginForm.value['password']
-      )
+      .login(this.loginForm.value['email'], this.loginForm.value['password'])
       .subscribe({
         next: (res) => {
-          this.router.navigate(['/']);
+          this.router.navigate(['/user']);
+          this.authService.showLoader = false;
         },
         error: (err) => {
           this.toastr.warning('E-mail ou Senha incorretos.');
-        },
-        complete: () => {
           this.authService.showLoader = false;
         },
       });

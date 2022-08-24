@@ -10,7 +10,6 @@ import { UserService } from 'src/app/shared/services/user.service';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  public email = 'djianlucca@outlook.com';
   public user;
   public organizations;
   public organizationsUser;
@@ -26,7 +25,12 @@ export class DashboardComponent implements OnInit {
   }
 
   async getUser() {
-    this.user = (await lastValueFrom(this.userService.getUser(this.email)))[0];
+    let user = this.localStorage.getUser();
+    if (!user) {
+      this.router.navigate(['/login']);
+      return;
+    }
+    this.user = await lastValueFrom(this.userService.getUser(user.id));
     this.organizations = await lastValueFrom(
       this.userService.getOrganizations(this.user.id)
     );

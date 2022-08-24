@@ -1,6 +1,5 @@
 import { BaseService } from './base.service';
 import { Injectable } from '@angular/core';
-import { LocalStorageService } from './local-storage.service';
 
 @Injectable({
   providedIn: 'root',
@@ -12,8 +11,8 @@ export class UserService {
 
   constructor(private base: BaseService) {}
 
-  getUser(email) {
-    return this.base.get(`${this.userUrl}?email=${email}`);
+  getUser(id) {
+    return this.base.get(`${this.userUrl}/${id}`);
   }
 
   getOrganizations(id) {
