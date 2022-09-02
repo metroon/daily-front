@@ -36,7 +36,6 @@ export class OriginalComponent implements OnInit {
     let startSlice = 0;
     let endSlice = 8;
     for (let index = 0; index < teamLines; index++) {
-      console.log(this.team.slice(startSlice, endSlice));
       this.teamGroup[index] = this.team.slice(startSlice, endSlice);
       startSlice = endSlice;
       endSlice = endSlice + (endSlice + 1);
@@ -98,8 +97,6 @@ export class OriginalComponent implements OnInit {
 
   generateRandom(maxLimit = 100) {
     let rand = Math.random() * maxLimit;
-    console.log(rand); // say 99.81321410836433
-
     rand = Math.floor(rand); // 99
 
     return rand;
@@ -122,8 +119,6 @@ export class OriginalComponent implements OnInit {
 
   isOpenId(id) {
     let checkForHexRegExp = /^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i;
-    console.log('ai ai ai ai ai ai ai >>>>>', id);
-    console.log('ai ai ai ai ai ai ai >>>>>', checkForHexRegExp.test(id));
     return checkForHexRegExp.test(id);
   }
 }
