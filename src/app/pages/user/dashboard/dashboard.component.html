@@ -1,11 +1,106 @@
-<pre>{{ user | json }}</pre>
-<button
-  class="btn btn-primary me-3"
-  *ngFor="let org of organizations"
-  (click)="getOrganizationUsers(org.id)"
->
-  {{ org.name }}
-</button>
-<pre>{{ organizationsUser | json }}</pre>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 col-md-3" *ngFor="let org of organizations">
+      <div class="card card-full">
+        <div
+          class="card-header d-flex align-items-center justify-content-between"
+        >
+          <div class="d-flex align-items-center">
+            <img
+              class="img-radius img-50 me-3 rounded-circle"
+              [src]="
+                org?.logo ||
+                'https://avatars.dicebear.com/api/initials/' + org.name + '.svg'
+              "
+              alt=""
+            />
+            <h5 class="m-0 text-uppercase bold">{{ org.name }}</h5>
+          </div>
 
-<button class="btn btn-primary me-3" (click)="goToRace()">🏁</button>
+          <div class="d-flex align-items-center">
+            <button
+              class="btn btn-pill btn-outline-light px-3"
+              (click)="goToRace(org)"
+            >
+              🏁
+            </button>
+            <button
+              class="btn btn-pill btn-outline-light px-3 ms-1"
+              (click)="goToOriginal(org)"
+            >
+              🎲
+            </button>
+          </div>
+        </div>
+        <div class="card-body pe-0">
+          <div class="limited-height pe-4">
+            <div
+              class="d-flex align-items-center justify-content-between mb-1"
+              *ngFor="let user of org.organizationUsers"
+            >
+              <div class="d-flex align-items-center">
+                <img
+                  class="img-radius img-30 me-3 rounded-circle"
+                  [src]="
+                    user?.picture ||
+                    'https://avatars.dicebear.com/api/micah/' +
+                      user.name +
+                      '.svg'
+                  "
+                  alt=""
+                />
+                <h6 class="m-0">{{ user.name }}</h6>
+              </div>
+              <div class="d-flex align-items-center">
+                <button class="btn btn-pill btn-outline-light btn-xs">
+                  <i class="fa fa-pencil"></i>
+                </button>
+                <button class="btn btn-pill btn-outline-light btn-xs ms-1">
+                  <i class="fa fa-times"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-3">
+      <div
+        class="card card-full d-flex align-items-center justify-content-center clickable"
+        (click)="openAddTeam()"
+      >
+        <h1 class="my-5 primary-text"><i class="fa fa-plus"></i></h1>
+      </div>
+    </div>
+  </div>
+</div>
+<app-modal
+  #modal
+  [modalData]="modalData"
+  [buttonDisabled]="!newOrganizationForm.valid"
+>
+  <div class="container-fluid">
+    <form class="row" [formGroup]="newOrganizationForm">
+      <div class="col-12 mb-3">
+        <label for="name" class="form-label">Nome do Time</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="name"
+          id="name"
+          placeholder="Digite aqui o nome do time"
+        />
+      </div>
+      <div class="col-12 mb-3">
+        <label for="logo" class="form-label">URL da imagem</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="logo"
+          id="logo"
+          placeholder="Cole aqui a url da imagem"
+        />
+      </div>
+    </form>
+  </div>
+</app-modal>

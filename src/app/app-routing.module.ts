@@ -6,11 +6,12 @@ import { AuthGuard } from './shared/services/auth/auth.guard';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'user',
     component: ContentTemplateComponent,
     children: [
       {
-        path: 'user',
+        path: '',
+        canActivate: [AuthGuard],
         loadChildren: () =>
           import('./pages/user/user.module').then((m) => m.UserModule),
       },

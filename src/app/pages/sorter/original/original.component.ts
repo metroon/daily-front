@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { TeamService } from 'src/app/shared/services/team.service';
+import { lastValueFrom } from 'rxjs';
+import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-original',
@@ -18,7 +20,8 @@ export class OriginalComponent implements OnInit {
   constructor(
     private teamService: TeamService,
     private router: Router,
-    private titleService: Title
+    private titleService: Title,
+    private userService: UserService
   ) {}
 
   async ngOnInit() {
@@ -47,7 +50,12 @@ export class OriginalComponent implements OnInit {
   }
 
   async getTeam(teamName) {
-    this.team = (await this.teamService.get(teamName).toPromise())
+    if (this.isOpenId(this.teamName)) {
+      this.team = await this.getOrganizationUsers(this.teamName);
+    } else {
+      this.team = await lastValueFrom(this.teamService.get(teamName));
+    }
+    this.team = this.team
       .map((el) => {
         el.isCanceled = false;
         return el;
@@ -104,5 +112,18 @@ export class OriginalComponent implements OnInit {
 
   goToRace() {
     this.router.navigate(['/race/' + this.teamName]);
+  }
+
+  async getOrganizationUsers(organizationId) {
+    return await lastValueFrom(
+      this.userService.getOrganizationUser(organizationId)
+    );
+  }
+
+  isOpenId(id) {
+    let checkForHexRegExp = /^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i;
+    console.log('ai ai ai ai ai ai ai >>>>>', id);
+    console.log('ai ai ai ai ai ai ai >>>>>', checkForHexRegExp.test(id));
+    return checkForHexRegExp.test(id);
   }
 }

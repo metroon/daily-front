@@ -239,8 +239,8 @@
   .mini-member-pic {
     height: 60px;
     width: 60px;
-    object-fit: contain;
-    object-position: bottom;
+    object-fit: cover;
+    object-position: center;
     border: 2px solid white;
     border-radius: 8px;
 

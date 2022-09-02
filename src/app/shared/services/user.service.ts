@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
   private userUrl = 'user';
+  private organizationSearchUrl = 'organizationSearch';
   private organizationUrl = 'organization';
   private organizationUserUrl = 'organizationUser';
 
@@ -16,10 +17,18 @@ export class UserService {
   }
 
   getOrganizations(id) {
-    return this.base.get(`${this.organizationUrl}?UserId=${id}`);
+    return this.base.get(`${this.organizationSearchUrl}?UserId=${id}`);
+  }
+
+  createOrganization(newOrganization) {
+    return this.base.post(`${this.organizationUrl}`, newOrganization);
   }
 
   getOrganizationUser(id) {
     return this.base.get(`${this.organizationUserUrl}?OrganizationId=${id}`);
+  }
+
+  update(id, body) {
+    return this.base.put(`${this.userUrl}/${id}`, body);
   }
 }
