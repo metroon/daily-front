@@ -6,11 +6,11 @@ import { AuthGuard } from './shared/services/auth/auth.guard';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'user',
     component: ContentTemplateComponent,
     children: [
       {
-        path: 'user',
+        path: '',
         loadChildren: () =>
           import('./pages/user/user.module').then((m) => m.UserModule),
       },
@@ -21,12 +21,17 @@ const routes: Routes = [
     component: FullTemplateComponent,
     children: [
       {
+        path: '',
+        loadChildren: () =>
+          import('./pages/public/public.module').then((m) => m.PublicModule),
+      },
+      {
         path: 'login',
         loadChildren: () =>
           import('./pages/auth/auth.module').then((m) => m.AuthModule),
       },
       {
-        path: '',
+        path: 'sorter',
         loadChildren: () =>
           import('./pages/sorter/sorter.module').then((m) => m.SorterModule),
       },
