@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,20 +10,21 @@ export class HomeComponent implements OnInit {
 
   public CurrentYear = new Date().getFullYear();
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.activatedRoute.fragment.subscribe((value) => {
+      this.jumpTo(value);
+    });
   }
 
   public navigatetoLogin(){
     this.router.navigate(['login']);
   }
 
-  public locateItemPosition(item: string) {
-    let el = document.querySelector(`#${item}`);
-console.log("EL", el)
-    if (el != null) {
-      el.scrollIntoView({ behavior: 'smooth' });
+  public jumpTo(section) {
+    if (section){
+      document.getElementById(section).scrollIntoView({ behavior: 'smooth' });
     }
   }
 }
