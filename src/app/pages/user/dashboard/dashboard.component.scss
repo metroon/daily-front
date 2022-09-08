@@ -22,3 +22,36 @@
 .card-full {
   height: calc(100% - 30px);
 }
+
+img.img-50 {
+  border: none;
+  position: relative;
+  &:before {
+    content: ":(";
+    display: block;
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #dbdbdb;
+  }
+}
+img.img-30 {
+  border: none;
+  position: relative;
+  &:before {
+    content: ":(";
+    display: block;
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #dbdbdb;
+  }
+}

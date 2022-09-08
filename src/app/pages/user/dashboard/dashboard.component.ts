@@ -13,12 +13,21 @@ import { UserService } from 'src/app/shared/services/user.service';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  @ViewChild('modal') modal: ModalComponent;
-  public modalData = new ModalData();
+  @ViewChild('modalOrg') modalOrg: ModalComponent;
+  public modalOrgData = new ModalData();
+  @ViewChild('modalMember') modalMember: ModalComponent;
+  public modalMemberData = new ModalData();
   public user;
   public organizations;
   public organizationsUser;
   public newOrganizationForm: FormGroup;
+  public selectedAvatar = '';
+
+  public newMember = {
+    OrganizationId: '',
+    name: '',
+    picture: '',
+  };
 
   constructor(
     private userService: UserService,
@@ -63,14 +72,75 @@ export class DashboardComponent implements OnInit {
   }
 
   async openAddTeam() {
-    this.modalData.title = 'Adicionar Time';
-    this.modalData.confirmButtonLabel = 'Adicionar';
-    this.modalData.closeButtonLabel = 'Cancelar';
-    let result = await this.modal.open();
+    this.modalOrgData.title = 'Adicionar Time';
+    this.modalOrgData.confirmButtonLabel = 'Adicionar';
+    this.modalOrgData.closeButtonLabel = 'Cancelar';
+    let result = await this.modalOrg.open();
     if (!result) return;
     let newOrganization = this.newOrganizationForm.value;
     this.userService.createOrganization(newOrganization).subscribe((data) => {
-      this.getOrganizations();
+      this.organizations.push(data);
+    });
+  }
+
+  async openAddMember(organization) {
+    console.log(organization);
+    this.newMember.OrganizationId = organization.OrganizationId;
+    this.modalMemberData.title =
+      'Adicionar Participante em ' + organization.name;
+    this.modalMemberData.confirmButtonLabel = 'Adicionar';
+    this.modalMemberData.closeButtonLabel = 'Cancelar';
+    let result = await this.modalMember.open();
+    if (!result) return;
+    let newMember = this.newMember;
+    if (this.isValid(newMember)) {
+      newMember.picture = newMember.picture.replace(/\s/g, '%20');
+      this.userService.createMember(newMember).subscribe((data) => {
+        organization.organizationUsers.push(data);
+      });
+    }
+    this.newMember.name = '';
+    this.newMember.picture = '';
+    this.selectedAvatar = '';
+  }
+
+  async openEditMember(member, organization) {
+    this.newMember = { ...member };
+    this.modalMemberData.title = 'Editar ' + member.name;
+    this.modalMemberData.confirmButtonLabel = 'Editar';
+    this.modalMemberData.closeButtonLabel = 'Cancelar';
+    let result = await this.modalMember.open();
+    if (!result) return;
+    let newMember = this.newMember;
+    if (this.isValid(newMember)) {
+      newMember.picture = newMember.picture.replace(/\s/g, '%20');
+      this.userService.editMember(newMember).subscribe((data) => {
+        organization.organizationUsers = organization.organizationUsers.map(
+          (m) => {
+            if (m.id == member.id) return data;
+            return m;
+          }
+        );
+      });
+    }
+    this.newMember.name = '';
+    this.newMember.picture = '';
+    this.selectedAvatar = '';
+  }
+
+  isValid(newMember) {
+    return newMember && newMember.name && newMember.picture;
+  }
+
+  setPicture(selectedAvatar) {
+    this.newMember.picture = `https://avatars.dicebear.com/api/${selectedAvatar}/${this.newMember.name}.svg`;
+  }
+
+  removeMember(memberId, organization) {
+    this.userService.removeMember(memberId).subscribe((data) => {
+      organization.organizationUsers = organization.organizationUsers.filter(
+        (m) => m.id != memberId && m._id != memberId
+      );
     });
   }
 }

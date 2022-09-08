@@ -17,11 +17,26 @@ export class UserService {
   }
 
   getOrganizations(id) {
-    return this.base.get(`${this.organizationSearchUrl}?UserId=${id}`);
+    return this.base.getNew(`${this.organizationSearchUrl}?UserId=${id}`);
   }
 
   createOrganization(newOrganization) {
     return this.base.post(`${this.organizationUrl}`, newOrganization);
+  }
+
+  createMember(newMember) {
+    return this.base.post(`${this.organizationUserUrl}`, newMember);
+  }
+
+  editMember(newMember) {
+    return this.base.put(
+      `${this.organizationUserUrl}/${newMember.id}`,
+      newMember
+    );
+  }
+
+  removeMember(memberId) {
+    return this.base.delete(`${this.organizationUserUrl}/${memberId}`);
   }
 
   getOrganizationUser(id) {

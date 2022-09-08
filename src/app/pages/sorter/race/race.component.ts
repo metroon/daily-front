@@ -89,7 +89,7 @@ export class RaceComponent implements OnInit {
         let member = new Member(
           mr.id,
           mr.name,
-          mr.picture,
+          mr.picture.replace(/\s/g, '%20'),
           this.getRadomColor()
         );
         member.order = i;

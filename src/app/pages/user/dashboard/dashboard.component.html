@@ -12,7 +12,6 @@
                 org?.logo ||
                 'https://avatars.dicebear.com/api/initials/' + org.name + '.svg'
               "
-              alt=""
             />
             <h5 class="m-0 text-uppercase bold">{{ org.name }}</h5>
           </div>
@@ -34,6 +33,12 @@
         </div>
         <div class="card-body pe-0">
           <div class="limited-height pe-4">
+            <button
+              class="btn btn-outline-primary w-100 mb-3"
+              (click)="openAddMember(org)"
+            >
+              Adicionar Membro
+            </button>
             <div
               class="d-flex align-items-center justify-content-between mb-1"
               *ngFor="let user of org.organizationUsers"
@@ -52,10 +57,18 @@
                 <h6 class="m-0">{{ user.name }}</h6>
               </div>
               <div class="d-flex align-items-center">
-                <button class="btn btn-pill btn-outline-light btn-xs">
+                <button
+                  *ngIf="user.id || user._id"
+                  class="btn btn-pill btn-outline-light btn-xs"
+                  (click)="openEditMember(user, org)"
+                >
                   <i class="fa fa-pencil"></i>
                 </button>
-                <button class="btn btn-pill btn-outline-light btn-xs ms-1">
+                <button
+                  *ngIf="user.id || user._id"
+                  class="btn btn-pill btn-outline-light btn-xs ms-1"
+                  (click)="removeMember(user.id || user._id, org)"
+                >
                   <i class="fa fa-times"></i>
                 </button>
               </div>
@@ -75,9 +88,9 @@
   </div>
 </div>
 <app-modal
-  #modal
-  [modalData]="modalData"
-  [buttonDisabled]="!newOrganizationForm.valid"
+  #modalOrg
+  [modalData]="modalOrgData"
+  [buttonDisabled]="newOrganizationForm.invalid"
 >
   <div class="container-fluid">
     <form class="row" [formGroup]="newOrganizationForm">
@@ -102,5 +115,160 @@
         />
       </div>
     </form>
+  </div>
+</app-modal>
+
+<app-modal #modalMember [modalData]="modalMemberData">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 mb-3">
+        <label for="name" class="form-label">Nome do Participante</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          [(ngModel)]="newMember.name"
+          placeholder="Digite aqui o nome do time"
+        />
+      </div>
+      <div class="col-12">
+        <div
+          class="btn-group w-100 mb-3"
+          role="group"
+          aria-label="Basic radio toggle button group"
+        >
+          <input
+            type="radio"
+            class="btn-check"
+            name="selectedAvatar"
+            id="btnradio1"
+            autocomplete="off"
+            [value]="'adventurer'"
+            [(ngModel)]="selectedAvatar"
+            (change)="setPicture('adventurer')"
+          />
+          <label class="btn btn-outline-warning py-0 px-2" for="btnradio1">
+            <img
+              [src]="
+                'https://avatars.dicebear.com/api/adventurer/' +
+                newMember.name +
+                '.svg'
+              "
+              class="img-fluid"
+            />
+          </label>
+
+          <input
+            type="radio"
+            class="btn-check"
+            name="selectedAvatar"
+            id="btnradio2"
+            autocomplete="off"
+            [value]="'avataaars'"
+            [(ngModel)]="selectedAvatar"
+            (change)="setPicture('avataaars')"
+          />
+          <label class="btn btn-outline-warning py-0 px-2" for="btnradio2">
+            <img
+              [src]="
+                'https://avatars.dicebear.com/api/avataaars/' +
+                newMember.name +
+                '.svg'
+              "
+              class="img-fluid"
+          /></label>
+
+          <input
+            type="radio"
+            class="btn-check"
+            name="selectedAvatar"
+            id="btnradio3"
+            autocomplete="off"
+            [value]="'big-smile'"
+            [(ngModel)]="selectedAvatar"
+            (change)="setPicture('big-smile')"
+          />
+          <label class="btn btn-outline-warning py-0 px-2" for="btnradio3">
+            <img
+              [src]="
+                'https://avatars.dicebear.com/api/big-smile/' +
+                newMember.name +
+                '.svg'
+              "
+              class="img-fluid"
+          /></label>
+
+          <input
+            type="radio"
+            class="btn-check"
+            name="selectedAvatar"
+            id="btnradio4"
+            autocomplete="off"
+            [value]="'bottts'"
+            [(ngModel)]="selectedAvatar"
+            (change)="setPicture('bottts')"
+          />
+          <label class="btn btn-outline-warning py-0 px-2" for="btnradio4">
+            <img
+              [src]="
+                'https://avatars.dicebear.com/api/bottts/' +
+                newMember.name +
+                '.svg'
+              "
+              class="img-fluid"
+          /></label>
+
+          <input
+            type="radio"
+            class="btn-check"
+            name="selectedAvatar"
+            id="btnradio5"
+            autocomplete="off"
+            [value]="'personas'"
+            [(ngModel)]="selectedAvatar"
+            (change)="setPicture('personas')"
+          />
+          <label class="btn btn-outline-warning py-0 px-2" for="btnradio5">
+            <img
+              [src]="
+                'https://avatars.dicebear.com/api/personas/' +
+                newMember.name +
+                '.svg'
+              "
+              class="img-fluid"
+          /></label>
+
+          <input
+            type="radio"
+            class="btn-check"
+            name="selectedAvatar"
+            id="btnradio6"
+            autocomplete="off"
+            [value]="'micah'"
+            [(ngModel)]="selectedAvatar"
+            (change)="setPicture('micah')"
+          />
+          <label class="btn btn-outline-warning py-0 px-2" for="btnradio6">
+            <img
+              [src]="
+                'https://avatars.dicebear.com/api/micah/' +
+                newMember.name +
+                '.svg'
+              "
+              class="img-fluid"
+          /></label>
+        </div>
+      </div>
+      <div class="col-12 mb-3">
+        <label for="picture" class="form-label">URL da imagem</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="newMember.picture"
+          id="picture"
+          placeholder="Cole aqui a url da imagem"
+        />
+      </div>
+    </div>
   </div>
 </app-modal>

@@ -158,7 +158,7 @@ $header-size: 80px;
   }
   .page-body-wrapper {
     .page-body {
-      min-height: calc(100vh - #{$header-size});
+      min-height: calc(100vh - 135px);
       margin-top: $header-size;
       padding: $page-body-padding;
       position: relative;

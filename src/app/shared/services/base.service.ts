@@ -8,11 +8,16 @@ import { environment } from 'src/environments/environment';
 })
 export class BaseService {
   private BASE_URL = environment.baseUrl;
+  private NEW_URL = environment.newUrl;
 
   constructor(private http: HttpClient) {}
 
   get(url: string): Observable<any> {
     return this.http.get(`${this.BASE_URL}/${url}`);
+  }
+
+  getNew(url: string): Observable<any> {
+    return this.http.get(`${this.NEW_URL}/${url}`);
   }
 
   post(url: string, body: any): Observable<any> {
