@@ -38,7 +38,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #242f3e;
+  color: #242f3e !important;
   font-family: "Poppins", sans-serif;
   text-transform: capitalize;
   font-weight: 500;
@@ -928,11 +928,11 @@ textarea.form-control {
 }
 
 .hero-area {
-  padding: 200px 0 260px;
+  padding: 200px 0 210px;
 }
 @media (max-width: 1650px) {
   .hero-area {
-    padding: 150px 0 260px;
+    padding: 150px 0 210px;
   }
 }
 @media (max-width: 767px) {
@@ -1192,7 +1192,7 @@ textarea.form-control {
   width: 70px;
   height: 50px;
   transform: translateX(-50%);
-  background: url(../../images/quotation/quetesion.png);
+  background: url(../../images/home/quetesion.png);
   background-repeat: no-repeat;
 }
 

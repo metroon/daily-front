@@ -12,17 +12,12 @@
       <div class="collapse navbar-collapse text-center" id="navigation">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-dark active text-capitalize" href="https://demo.themefisher.com/agico/#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item text-color" href="https://demo.themefisher.com/agico/index.html">Homepage 1</a>
-              <a class="dropdown-item text-color" href="https://demo.themefisher.com/agico/homepage2.html">Homepage 2</a>
-              <a class="dropdown-item text-color" href="https://demo.themefisher.com/agico/homepage3.html">Homepage 3</a>
-            </div>
+            <a class="nav-link text-dark active text-capitalize" href="https://demo.themefisher.com/agico/#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-dark text-capitalize" href="https://demo.themefisher.com/agico/about.html">about</a>
+            <a class="nav-link text-dark text-capitalize" [routerLink]="['/']" fragment="sobre">Sobre</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link text-dark text-capitalize" href="https://demo.themefisher.com/agico/services.html">services</a>
           </li>
           <li class="nav-item dropdown">
@@ -35,12 +30,12 @@
           </li>
           <li class="nav-item">
             <a class="nav-link text-dark text-capitalize" href="https://demo.themefisher.com/agico/blog.html">blog</a>
-          </li>
+          </li> -->
           <li class="nav-item">
-            <a class="nav-link text-dark text-capitalize" href="https://demo.themefisher.com/agico/contact.html">contact</a>
+            <a class="nav-link text-dark text-capitalize" href="https://demo.themefisher.com/agico/contact.html">Contato</a>
           </li>
         </ul>
-        <a href="https://demo.themefisher.com/agico/#" class="btn btn-outline-primary text-white ml-3">sign up</a>
+        <button class="btn btn-outline-primary text-white ml-3" (click)="navigatetoLogin()">Login</button>
       </div>
     </nav>
   </div>
@@ -55,13 +50,14 @@
         <h1 class="text-dark position-relative">Monte uma sala para o seu time<span class="watermark">Daily</span></h1>
         <p class="text-dark mb-4">E faça de suas Daily meet um momento mais descontraído</p>
         <ul class="list-inline">
-          <li class="list-inline-item mx-1 my-2">
+          <!-- <li class="list-inline-item mx-1 my-2">
             <a href="https://demo.themefisher.com/agico/#" class="btn btn-primary">
               <img src="assets/images/home/google-play-white.png" class="img-fluid mr-2 rounded" alt="play-store"> Google Play</a>
-          </li>
+          </li> -->
           <li class="list-inline-item mx-1 my-2">
-            <a href="https://demo.themefisher.com/agico/#" class="btn btn-outline-primary"><i class="fa fa-apple text-secondary mr-3 transition"></i>App
-              Store</a>
+            <a href="https://demo.themefisher.com/agico/#" class="btn btn-outline-primary">
+              Criar sala
+            </a>
           </li>
         </ul>
       </div>
@@ -77,13 +73,13 @@
 <!-- feature -->
 <section class="position-relative">
   <div class="container">
-    <div class="row">
+    <div class="row justify-content-center">
       <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0 aos-init aos-animate" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="00">
         <div class="card border-0 shadow rounded-xs pt-5">
           <div class="card-body">
             <i class="fa fa-desktop icon-lg icon-blue icon-bg-blue icon-bg-circle mb-3"></i>
-            <h4 class="mt-4 mb-3">Exclusive Design</h4>
-            <p>Lorem ipsum dolor sit amet consectetur elit sed do</p>
+            <h4 class="mt-4 mb-3">Salas Exclusivas por organização</h4>
+            <p>Times diferentes por organização</p>
           </div>
         </div>
       </div>
@@ -91,16 +87,16 @@
         <div class="card border-0 shadow rounded-xs pt-5">
           <div class="card-body">
             <i class="fa fa-gears icon-lg icon-orange icon-bg-orange icon-bg-circle mb-3"></i>
-            <h4 class="mt-4 mb-3">Easy Customize</h4>
-            <p>Lorem ipsum dolor sit amet consectetur elit sed do</p>
+            <h4 class="mt-4 mb-3">Fácil Customização</h4>
+            <p>Cada um com sua imagem</p>
           </div>
         </div>
       </div>
-      <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0 aos-init aos-animate" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
+      <!-- <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0 aos-init aos-animate" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
         <div class="card border-0 shadow rounded-xs pt-5">
           <div class="card-body">
             <i class="fa fa-shield icon-lg icon-purple icon-bg-purple icon-bg-circle mb-3"></i>
-            <h4 class="mt-4 mb-3">Extreme Security</h4>
+            <h4 class="mt-4 mb-3">Organização Segura</h4>
             <p>Lorem ipsum dolor sit amet consectetur elit sed do</p>
           </div>
         </div>
@@ -109,11 +105,11 @@
         <div class="card border-0 shadow rounded-xs pt-5">
           <div class="card-body">
             <i class="fa fa-clock-o icon-lg icon-green icon-bg-green icon-bg-circle mb-3"></i>
-            <h4 class="mt-4 mb-3">24 Hour Service</h4>
+            <h4 class="mt-4 mb-3">Serviço 24 Horas</h4>
             <p>Lorem ipsum dolor sit amet consectetur elit sed do</p>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
   <img src="assets/images/home/dot-1.png" class="img-fluid feature-bg-shape-1" alt="background-dots">
@@ -122,7 +118,7 @@
 <!-- feature -->
 
 <!-- integration -->
-<section class="section pb-0">
+<!-- <section class="section pb-0">
   <div class="container">
     <div class="row">
       <div class="col-md-6 pr-lg-5">
@@ -159,9 +155,9 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
-<section class="section overflow-hidden">
+<!-- <section class="section overflow-hidden">
   <div class="container">
     <div class="row">
       <div class="col-md-6 pr-lg-5">
@@ -175,47 +171,20 @@
         <a href="https://demo.themefisher.com/agico/#" class="mb-4 btn btn-outline-primary aos-init" data-aos="fade-up" data-aos-delay="500">read nore</a>
       </div>
       <div class="col-md-6 pl-lg-5">
-        <img src="assets/images/home/integration-3.png" class="img-fluid aos-init" alt="dashboard" data-aos="fade-left" data-aos-delay="200">
+        <img src="../../../../assets/images/home/integration-3.png" class="img-fluid aos-init" alt="dashboard" data-aos="fade-left" data-aos-delay="200">
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <!-- integration -->
-
-<!-- counter -->
-<section class="bg-light py-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3 col-sm-6 mb-4 mb-md-0 text-center">
-        <p class="h2 text-dark"><span class="counter" data-count="8">0</span>K+</p>
-        <h6 class="text-dark font-weight-normal">Downloads per day</h6>
-      </div>
-      <div class="col-md-3 col-sm-6 mb-4 mb-md-0 text-center">
-        <p class="h2 text-dark"><span class="counter" data-count="20">0</span>+</p>
-        <h6 class="text-dark font-weight-normal">Design awards</h6>
-      </div>
-      <div class="col-md-3 col-sm-6 mb-4 mb-md-0 text-center">
-        <p class="h2 text-dark"><span class="counter" data-count="25">0</span>K+</p>
-        <h6 class="text-dark font-weight-normal">Totally satisfied users</h6>
-      </div>
-      <div class="col-md-3 col-sm-6 mb-4 mb-md-0 text-center">
-        <p class="h2 text-dark"><span class="counter" data-count="30">0</span>+</p>
-        <h6 class="text-dark font-weight-normal">People behind this app</h6>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- counter -->
 
 <!-- download -->
 <section class="section bg-gradient-purple bg-triangles position-relative">
   <div class="container">
     <div class="row">
       <div class="col-lg-9 mx-auto text-center">
-        <h2 class="section-title text-white">Download Agico Now</h2>
-        <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. ut enim ad minim veniam quis nostrud exercitation
-          ullamco laboris aliquip commodo consequat</p>
+        <h2 class="section-title text-white">Veja como é fácil</h2>
+        <p class="text-white">No vídeo mostramos como é fácil criar uma Organização e montar um time</p>
       </div>
       <div class="col-12 section border-bottom border-gray mb-80">
         <div class="pulse-container">
@@ -232,6 +201,7 @@
       </div>
       <!-- parthner -->
       <div class="col-12">
+        <h3 class="section-title text-white">Algumas empresas que utilizam</h3>
         <ul class="list-inline d-flex justify-content-between align-items-center position-relative zindex-1">
           <li class="list-inline-item"><img class="img-fluid p-2" src="assets/images/home/client-logo-1-alt.png" alt="partner-1"></li>
           <li class="list-inline-item"><img class="img-fluid p-2" src="assets/images/home/client-logo-2-alt.png" alt="partner-2"></li>
@@ -246,104 +216,52 @@
 </section>
 <!-- download -->
 
+<!-- counter -->
+<section class="bg-light py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-3 col-sm-6 mb-4 mb-md-0 text-center">
+        <p class="h2 text-dark"><span class="counter" data-count="8">0</span>K+</p>
+        <h6 class="text-dark font-weight-normal">Dailys por dia</h6>
+      </div>
+      <div class="col-md-3 col-sm-6 mb-4 mb-md-0 text-center">
+        <p class="h2 text-dark"><span class="counter" data-count="25">0</span>K+</p>
+        <h6 class="text-dark font-weight-normal">Total de usuários satisfeitos</h6>
+      </div>
+      <div class="col-md-3 col-sm-6 mb-4 mb-md-0 text-center">
+        <p class="h2 text-dark"><span class="counter" data-count="30">0</span>+</p>
+        <h6 class="text-dark font-weight-normal">Total de usuários</h6>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- counter -->
+
 <!-- testimonial -->
-<section class="section bg-light bg-map">
+<section class="section bg-light">
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <img class="img-fluid" src="assets/images/home/testimonial-img.png" alt="clients">
+        <img class="img-fluid" src="assets/images/home/blog-post-3.jpg" alt="clients">
       </div>
       <div class="col-md-6">
-        <p class="subtitle">testimonials</p>
-        <h2 class="section-title mb-5">What Our Clients Says?</h2>
+        <h2 class="section-title mb-5">Nos ajude a tomar um café</h2>
         <div class="testimonial-slider-single slick-initialized slick-slider">
-          <button class="prevarrow slick-arrow"></button>
-          <div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 2970px; transform: translate3d(-1320px, 0px, 0px);"><div class="slider-item slick-slide slick-cloned" data-slick-index="-1" id="" aria-hidden="true" style="width: 330px;" tabindex="-1">
-            <img class="mb-5" src="assets/images/home/quotation.png" alt="quote-icon">
-            <p class="font-italic mb-4">Lorem ipsum dolor sit amet consectetur adipicing elit sed do
-              usmod tempor
-              incididunt.enim ad minim veniam, quis nostrud exer citation ullamco laboris nisi ut aliquip
-              commodo.</p>
-            <h5 class="text-dark">Liam Hughes</h5>
-            <h6 class="text-color">Happy client</h6>
-          </div><div class="slider-item slick-slide" data-slick-index="0" aria-hidden="true" style="width: 330px;" tabindex="-1">
-            <img class="mb-5" src="assets/images/home/quotation.png" alt="quote-icon">
-            <p class="font-italic mb-4">Lorem ipsum dolor sit amet consectetur adipicing elit sed do
-              usmod tempor
-              incididunt.enim ad minim veniam, quis nostrud exer citation ullamco laboris nisi ut aliquip
-              commodo.</p>
-            <h5 class="text-dark">Liam Hughes</h5>
-            <h6 class="text-color">Happy client</h6>
-          </div><div class="slider-item slick-slide" data-slick-index="1" aria-hidden="true" style="width: 330px;" tabindex="-1">
-            <img class="mb-5" src="assets/images/home/quotation.png" alt="quote-icon">
-            <p class="font-italic mb-4">Lorem ipsum dolor sit amet consectetur adipicing elit sed do
-              usmod tempor
-              incididunt.enim ad minim veniam, quis nostrud exer citation ullamco laboris nisi ut aliquip
-              commodo.</p>
-            <h5 class="text-dark">Liam Hughes</h5>
-            <h6 class="text-color">Happy client</h6>
-          </div><div class="slider-item slick-slide" data-slick-index="2" aria-hidden="true" style="width: 330px;" tabindex="-1">
-            <img class="mb-5" src="assets/images/home/quotation.png" alt="quote-icon">
-            <p class="font-italic mb-4">Lorem ipsum dolor sit amet consectetur adipicing elit sed do
-              usmod tempor
-              incididunt.enim ad minim veniam, quis nostrud exer citation ullamco laboris nisi ut aliquip
-              commodo.</p>
-            <h5 class="text-dark">Liam Hughes</h5>
-            <h6 class="text-color">Happy client</h6>
-          </div><div class="slider-item slick-slide slick-current slick-active" data-slick-index="3" aria-hidden="false" style="width: 330px;" tabindex="0">
-            <img class="mb-5" src="assets/images/home/quotation.png" alt="quote-icon">
-            <p class="font-italic mb-4">Lorem ipsum dolor sit amet consectetur adipicing elit sed do
-              usmod tempor
-              incididunt.enim ad minim veniam, quis nostrud exer citation ullamco laboris nisi ut aliquip
-              commodo.</p>
-            <h5 class="text-dark">Liam Hughes</h5>
-            <h6 class="text-color">Happy client</h6>
-          </div><div class="slider-item slick-slide slick-cloned" data-slick-index="4" id="" aria-hidden="true" style="width: 330px;" tabindex="-1">
-            <img class="mb-5" src="assets/images/home/quotation.png" alt="quote-icon">
-            <p class="font-italic mb-4">Lorem ipsum dolor sit amet consectetur adipicing elit sed do
-              usmod tempor
-              incididunt.enim ad minim veniam, quis nostrud exer citation ullamco laboris nisi ut aliquip
-              commodo.</p>
-            <h5 class="text-dark">Liam Hughes</h5>
-            <h6 class="text-color">Happy client</h6>
-          </div><div class="slider-item slick-slide slick-cloned" data-slick-index="5" id="" aria-hidden="true" style="width: 330px;" tabindex="-1">
-            <img class="mb-5" src="assets/images/home/quotation.png" alt="quote-icon">
-            <p class="font-italic mb-4">Lorem ipsum dolor sit amet consectetur adipicing elit sed do
-              usmod tempor
-              incididunt.enim ad minim veniam, quis nostrud exer citation ullamco laboris nisi ut aliquip
-              commodo.</p>
-            <h5 class="text-dark">Liam Hughes</h5>
-            <h6 class="text-color">Happy client</h6>
-          </div><div class="slider-item slick-slide slick-cloned" data-slick-index="6" id="" aria-hidden="true" style="width: 330px;" tabindex="-1">
-            <img class="mb-5" src="assets/images/home/quotation.png" alt="quote-icon">
-            <p class="font-italic mb-4">Lorem ipsum dolor sit amet consectetur adipicing elit sed do
-              usmod tempor
-              incididunt.enim ad minim veniam, quis nostrud exer citation ullamco laboris nisi ut aliquip
-              commodo.</p>
-            <h5 class="text-dark">Liam Hughes</h5>
-            <h6 class="text-color">Happy client</h6>
-          </div><div class="slider-item slick-slide slick-cloned" data-slick-index="7" id="" aria-hidden="true" style="width: 330px;" tabindex="-1">
-            <img class="mb-5" src="assets/images/home/quotation.png" alt="quote-icon">
-            <p class="font-italic mb-4">Lorem ipsum dolor sit amet consectetur adipicing elit sed do
-              usmod tempor
-              incididunt.enim ad minim veniam, quis nostrud exer citation ullamco laboris nisi ut aliquip
-              commodo.</p>
-            <h5 class="text-dark">Liam Hughes</h5>
-            <h6 class="text-color">Happy client</h6>
-          </div></div></div>
-          
-          
-          
-        <button class="nextarrow slick-arrow"></button></div>
+          <div class="slider-item slick-slide slick-cloned" data-slick-index="-1" id="" aria-hidden="true" style="width: 330px;" tabindex="-1">
+            <p class="font-italic mb-4">Faça uma doação para nos ajudar a manter esse projeto e poder tomar um café.</p>
+            <h5 class="text-dark">Nosso PIX</h5>
+            <h6 class="text-color">041141809000110</h6>
+          </div>  
+        </div>
       </div>
     </div>
   </div>
 </section>
 <!-- testimonial -->
 
-<section class="section section-lg-bottom">
+<!-- <section class="section section-lg-bottom"> -->
   <!-- blog -->
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div class="col-12">
       <p class="subtitle">latest news</p>
@@ -448,12 +366,12 @@
         </div></div></div><button class="nextarrow slick-arrow"></button></div>
     </div>
   </div>
-</div>
+</div> -->
 <!-- blog -->
-</section>
+<!-- </section> -->
 
 <!-- subscription -->
-<section class="subscription bg-white">
+<!-- <section class="subscription bg-white">
   <div class="container">
     <div class="row">
       <div class="col-12">
@@ -473,7 +391,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <!-- subscription -->
 
 <!-- footer part start -->
@@ -481,35 +399,27 @@
   <section class="section border-bottom border-color">
     <div class="container">
       <div class="row justify-content-between">
-        <div class="col-md-5 mb-4 mb-md-0">
-          <img src="assets/images/home/logo.png" class="mb-4" alt="agico">
-          <p class="text-light mb-4">Lorem ipsum dolor amet consectetur adipisicing elit sed eiusm tempor incididunt ut
-            labore dolore magna aliqua enim ad minim veniam quis nostrud exercitation ullamaboris nisi ut aliquip.exea
-            commodo consequat. Duis aute irure dolor in reprehenderit.</p>
+        <div id="sobre" class="col-md-5 mb-4 mb-md-0 align-items-bottom">
+          <img src="assets/images/original/logo_horizontal.png" style="width: 148px;" class="mb-4">
+          <p class="text-light mb-4">Não sei um texto para colocar aqui no momento, mas só sei dizer que a aplicação é MUITO FODA!.</p>
           <ul class="list-inline social-icons">
             <li class="list-inline-item"><a href="http://facebook.com/themefisher" target="_blank"><i class="fa fa-facebook"></i></a></li>
             <li class="list-inline-item"><a href="http://twitter.com/themefisher" target="_blank"><i class="fa fa-twitter"></i></a></li>
-            <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCx9qVW8VF0LmTi4OF2F8YdA/featured" target="_blank"><i class="fa fa-youtube"></i></a></li>
-            <li class="list-inline-item"><a href="http://github.com/themefisher" target="_blank"><i class="fa fa-github"></i></a></li>
+            <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCx9qVW8VF0LmTi4OF2F8YdA/featured" target="_blank"><i class="fa fa-instagram"></i></a></li>
+            <li class="list-inline-item"><a href="http://github.com/themefisher" target="_blank"><i class="fa fa-linkedin"></i></a></li>
           </ul>
         </div>
-        <div class="col-md-3 col-sm-6">
-          <h4 class="text-white mb-4">Services</h4>
-          <ul class="list-styled list-hover-underline">
-            <li class="mb-3 text-light"><a href="https://demo.themefisher.com/agico/about.html" class="text-light">Company History</a></li>
-            <li class="mb-3 text-light"><a href="https://demo.themefisher.com/agico/about.html" class="text-light">About us</a></li>
-            <li class="mb-3 text-light"><a href="https://demo.themefisher.com/agico/contact.html" class="text-light">Contact us</a></li>
-            <li class="mb-3 text-light"><a href="https://demo.themefisher.com/agico/services.html" class="text-light">Services</a></li>
-            <li class="mb-3 text-light"><a href="https://demo.themefisher.com/agico/#" class="text-light">Privacy Policy</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6">
-          <h4 class="text-white mb-4">Contact Info</h4>
-          <p class="text-light">9567 Turner Trace Apt. 466 North Willie, BC C3G8A4</p>
-          <ul class="list-unstyled">
-            <li class="mb-3"><a class="text-light" href="tel:+211234565523">+21 123 456 5523</a></li>
-            <li class="mb-3"><a class="text-light" href="mailto:info@agico.com">info@agico.com</a></li>
-          </ul>
+        <div id="contato" class="col-lg-3 col-md-4 col-sm-6">
+          <h4 class="text-white mb-4">Contato</h4>
+          <div class="d-flex flex-column text-light">
+            <label>Nome: </label>
+            <input type="text"/>
+            <label class="mt-2">E-mail: </label>
+            <input type="text"/>
+            <label class="mt-2">Assunto: </label>
+            <textarea></textarea>
+            <button type="submit" class="btn btn-primary btn-lg border-0  mt-3">Enviar</button>
+          </div>
         </div>
       </div>
     </div>
@@ -519,19 +429,18 @@
   <!-- copyright part start -->
   <section class="py-4">
     <div class="container">
-      <div class="row">
-        <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
-          <p class="mb-0 text-light">Copyright ©
-            <script>
-              var CurrentYear = new Date().getFullYear()
-              document.write(CurrentYear)
-            </script>2022
-            a theme by <a href="https://themefisher.com/">themefisher.com</a></p>
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center text-md-left">
+          <label class="text-light">Copyright © {{ CurrentYear }}
+            desenvolvido por <a href="http://www.metroon.com.br/" target="_blank">
+              <img src="assets/images/logo_metroon_horizontal.png" style="width: 95px;"/>
+            </a>
+          </label>
         </div>
         <div class="col-md-6 text-md-right text-center">
           <ul class="list-inline">
-            <li class="list-inline-item"><a href="https://demo.themefisher.com/agico/#" class="text-light">Terms of Service</a></li>
-            <li class="list-inline-item">| &nbsp;<a href="https://demo.themefisher.com/agico/#" class="text-light">Privacy Policy</a></li>
+            <li class="list-inline-item"><a href="https://demo.themefisher.com/agico/#" class="text-light">Termos de Serviço</a></li>
+            <li class="list-inline-item">| &nbsp;<a href="https://demo.themefisher.com/agico/#" class="text-light">Politica de Privacidade</a></li>
           </ul>
         </div>
       </div>
