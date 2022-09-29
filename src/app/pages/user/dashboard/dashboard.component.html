@@ -54,7 +54,9 @@
                   "
                   alt=""
                 />
-                <h6 class="m-0">{{ user.name }}</h6>
+                <h6 class="m-0 clickable" (click)="openEditMember(user, org)">
+                  {{ user.name }}
+                </h6>
               </div>
               <div class="d-flex align-items-center">
                 <button

@@ -1,3 +1,4 @@
+import { CreateUserComponent } from './create-user/create-user.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthComponent } from './auth.component';
@@ -13,6 +14,10 @@ const routes: Routes = [
       {
         path: '',
         component: LoginComponent,
+      },
+      {
+        path: 'create',
+        component: CreateUserComponent,
       },
       {
         path: 'new-password',
