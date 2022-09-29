@@ -17,7 +17,7 @@ export class UserService {
   }
 
   getOrganizations(id) {
-    return this.base.getNew(`${this.organizationSearchUrl}?UserId=${id}`);
+    return this.base.get(`${this.organizationSearchUrl}?UserId=${id}`);
   }
 
   createOrganization(newOrganization) {

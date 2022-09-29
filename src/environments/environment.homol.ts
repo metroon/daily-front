@@ -1,5 +1,4 @@
 export const environment = {
   production: false,
-  baseUrl: 'https://projeto-daily-api.herokuapp.com',
-  newUrl: 'https://projeto-daily-search.herokuapp.com',
+  baseUrl: 'https://projeto-daily-bff.herokuapp.com',
 };
