@@ -18,6 +18,7 @@
       type="button"
       class="btn m-0"
       [ngClass]="isDelete ? 'btn-confirm-bottom' : 'btn-primary'"
+      [disabled]="buttonDisabled"
       (click)="onResult()"
     >
       {{ modalData?.confirmButtonLabel }}

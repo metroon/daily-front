@@ -19,6 +19,14 @@ export class LocalStorageService {
     return JSON.parse(localStorage.getItem(Constants.TOKEN)) || null;
   }
 
+  public setToken(token) {
+    this.setItem(Constants.TOKEN, token);
+  }
+
+  public getAccessToken() {
+    return JSON.parse(localStorage.getItem(Constants.ACCESS_TOKEN)) || null;
+  }
+
   public setAccessToken(accessToken) {
     this.setItem(Constants.ACCESS_TOKEN, accessToken);
   }

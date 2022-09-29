@@ -1,0 +1,57 @@
+@import "../../../../assets/scss/theme/variables";
+
+.rounded-circle {
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+.limited-height {
+  max-height: 250px;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    height: 4px;
+    width: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background: $light-body-bg-color, rgba(0, 0, 0, 0.5);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $primary-color;
+  }
+}
+.card-full {
+  height: calc(100% - 30px);
+}
+
+img.img-50 {
+  border: none;
+  position: relative;
+  &:before {
+    content: ":(";
+    display: block;
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #dbdbdb;
+  }
+}
+img.img-30 {
+  border: none;
+  position: relative;
+  &:before {
+    content: ":(";
+    display: block;
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #dbdbdb;
+  }
+}

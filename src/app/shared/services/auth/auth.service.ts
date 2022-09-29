@@ -19,6 +19,10 @@ export class AuthService {
     private router: Router
   ) {}
 
+  public createUser(newUser) {
+    return this.baseService.post('user', newUser);
+  }
+
   public login(email, password) {
     let loginModel = { email, password };
     return this.baseService.post('auth/signin', loginModel).pipe(

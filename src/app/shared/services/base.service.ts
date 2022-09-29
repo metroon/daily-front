@@ -14,7 +14,6 @@ export class BaseService {
   get(url: string): Observable<any> {
     return this.http.get(`${this.BASE_URL}/${url}`);
   }
-
   post(url: string, body: any): Observable<any> {
     return this.http.post(`${this.BASE_URL}/${url}`, body);
   }

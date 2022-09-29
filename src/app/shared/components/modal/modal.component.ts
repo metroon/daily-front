@@ -17,6 +17,7 @@ export class ModalComponent implements OnInit {
   @Input() public modalData: ModalData;
   @Input() public isDelete = false;
   @Input() public buttonVisible = true;
+  @Input() public buttonDisabled = false;
   @ViewChild('modal') private modalContent: TemplateRef<ModalComponent>;
   private modalRef: NgbModalRef;
 
@@ -27,9 +28,11 @@ export class ModalComponent implements OnInit {
   open(): Promise<boolean> {
     return new Promise<boolean>((resolve) => {
       this.modalRef = this.modalService.open(this.modalContent, {
-        keyboard: false,
+        centered: true,
       });
-      this.modalRef.result.then(resolve, resolve);
+      this.modalRef.result.then(resolve, (reason) => {
+        resolve(false);
+      });
     });
   }
 

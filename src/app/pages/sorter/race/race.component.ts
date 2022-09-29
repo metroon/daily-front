@@ -6,6 +6,7 @@ import { Member } from 'src/app/shared/models/member';
 import { MemberRaw } from 'src/app/shared/models/member-raw';
 import { LocalStorageService } from 'src/app/shared/services/local-storage.service';
 import { TeamService } from 'src/app/shared/services/team.service';
+import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-race',
@@ -59,12 +60,12 @@ export class RaceComponent implements OnInit {
     private teamService: TeamService,
     private router: Router,
     private titleService: Title,
-    private localStorage: LocalStorageService
+    private localStorage: LocalStorageService,
+    private userService: UserService
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.teamName = this.router.url.split('/').pop();
-    this.team = this.localStorage.getItem('TEAM');
     this.getTeam(this.teamName);
     this.setAppTitle();
   }
@@ -77,10 +78,10 @@ export class RaceComponent implements OnInit {
 
   async getTeam(teamName) {
     let team;
-    if (!this.team || !this.team[0]) {
-      team = await lastValueFrom(this.teamService.get(teamName));
+    if (this.isOpenId(this.teamName)) {
+      team = await this.getOrganizationUsers(this.teamName);
     } else {
-      team = this.team;
+      team = await lastValueFrom(this.teamService.get(teamName));
     }
     this.team = team
       .sort((a, b) => a.name - b.name)
@@ -88,7 +89,7 @@ export class RaceComponent implements OnInit {
         let member = new Member(
           mr.id,
           mr.name,
-          mr.picture,
+          mr.picture.replace(/\s/g, '%20'),
           this.getRadomColor()
         );
         member.order = i;
@@ -235,5 +236,16 @@ export class RaceComponent implements OnInit {
 
   goToOriginal() {
     this.router.navigate(['/' + this.teamName]);
+  }
+
+  async getOrganizationUsers(organizationId) {
+    return await lastValueFrom(
+      this.userService.getOrganizationUser(organizationId)
+    );
+  }
+
+  isOpenId(id) {
+    let checkForHexRegExp = /^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i;
+    return checkForHexRegExp.test(id);
   }
 }
