@@ -8,8 +8,9 @@ import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthService } from './shared/services/auth/auth.service';
+import { AuthInterceptor } from './shared/services/auth/auth.interceptor';
 
 registerLocaleData(localePt);
 
@@ -24,7 +25,15 @@ registerLocaleData(localePt);
     ToastrModule.forRoot(),
     NgxChartsModule,
   ],
-  providers: [AuthService, { provide: LOCALE_ID, useValue: 'pt' }],
+  providers: [
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+    { provide: LOCALE_ID, useValue: 'pt' },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
