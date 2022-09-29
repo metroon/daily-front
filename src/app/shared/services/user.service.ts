@@ -11,15 +11,19 @@ export class UserService {
 
   constructor(private base: BaseService) {}
 
-  getUser(id) {
+  public getUser(id) {
     return this.base.get(`${this.userUrl}/${id}`);
   }
 
-  getOrganizations(id) {
+  public getOrganizations(id) {
     return this.base.get(`${this.organizationUrl}?UserId=${id}`);
   }
 
-  getOrganizationUser(id) {
+  public getOrganizationUser(id) {
     return this.base.get(`${this.organizationUserUrl}?OrganizationId=${id}`);
+  }
+
+  public createUser(newUser) {
+    return this.base.post('user', newUser);
   }
 }

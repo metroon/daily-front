@@ -22,6 +22,10 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['login']);
   }
 
+   public navigatetoSignIn(){
+    this.router.navigate(['signin']);
+  }
+
   public jumpTo(section) {
     if (section){
       document.getElementById(section).scrollIntoView({ behavior: 'smooth' });
