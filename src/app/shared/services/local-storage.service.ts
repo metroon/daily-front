@@ -12,20 +12,32 @@ export class LocalStorageService {
   }
 
   public setItem(key, value) {
-    localStorage.setItem(key, value);
+    localStorage.setItem(key, JSON.stringify(value));
   }
 
   public getToken() {
     return JSON.parse(localStorage.getItem(Constants.TOKEN)) || null;
   }
 
+  public setToken(token) {
+    this.setItem(Constants.TOKEN, token);
+  }
+
+  public getAccessToken() {
+    return JSON.parse(localStorage.getItem(Constants.ACCESS_TOKEN)) || null;
+  }
+
   public setAccessToken(accessToken) {
-    this.setItem(Constants.ACCESS_TOKEN, JSON.stringify(accessToken));
+    this.setItem(Constants.ACCESS_TOKEN, accessToken);
   }
 
   public updateTokens(token: any) {
-    this.setItem(Constants.TOKEN, JSON.stringify(token));
-    this.setItem(Constants.ACCESS_TOKEN, JSON.stringify(token.access_token));
+    this.setItem(Constants.TOKEN, token);
+    this.setItem(Constants.ACCESS_TOKEN, token.accessToken);
+  }
+
+  public getUser() {
+    return JSON.parse(localStorage.getItem(Constants.TOKEN))?.user || null;
   }
 
   public clearLocalStorage() {

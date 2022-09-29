@@ -1,6 +1,6 @@
 <div
   class="grass-bg vh-100 d-flex flex-column justify-content-between user-select-none"
-  [class.big-race]="teamCopy && teamCopy.length > 10"
+  [class.big-race]="teamCopy && teamCopy.length > bigRaceLimit"
 >
   <div class="d-flex justify-content-center w-75 mx-auto my-3 flex-shrink-1">
     <div
@@ -37,6 +37,7 @@
           <div
             class="avatar"
             [style.backgroundImage]="'url(' + member.picture + ')'"
+            [title]="member.picture"
           ></div>
         </div>
         <app-car
@@ -79,7 +80,7 @@
 <div
   class="leaderboard-overlay"
   [class.show-scoreboard]="ended && isVisible"
-  [class.big-race]="teamCopy && teamCopy.length > 10"
+  [class.big-race]="teamCopy && teamCopy.length > bigRaceLimit"
   (click)="isVisible = !isVisible"
 >
   <div class="leaderboard user-select-none" (click)="$event.stopPropagation()">

@@ -19,20 +19,13 @@ export class AuthService {
     private router: Router
   ) {}
 
-  public login(email, password) {
-    let loginModel = { email, password };
-    return this.baseService.post('authenticate', loginModel).pipe(
-      map((response) => {
-        const authenticatedModel = response;
-        this.localStorageService.updateTokens(authenticatedModel);
-        return response;
-      })
-    );
+  public createUser(newUser) {
+    return this.baseService.post('user', newUser);
   }
 
-  // Remover e utilizr a função login()
-  public loginMock(email, password) {
-    return this.http.get('assets/data/authenticate.json').pipe(
+  public login(email, password) {
+    let loginModel = { email, password };
+    return this.baseService.post('auth/signin', loginModel).pipe(
       map((response) => {
         const authenticatedModel = response;
         this.localStorageService.updateTokens(authenticatedModel);

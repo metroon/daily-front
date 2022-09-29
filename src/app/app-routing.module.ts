@@ -6,19 +6,31 @@ import { AuthGuard } from './shared/services/auth/auth.guard';
 
 const routes: Routes = [
   {
+    path: 'user',
+    component: ContentTemplateComponent,
+    children: [
+      {
+        path: '',
+        canActivate: [AuthGuard],
+        loadChildren: () =>
+          import('./pages/user/user.module').then((m) => m.UserModule),
+      },
+    ],
+  },
+  {
     path: '',
     component: FullTemplateComponent,
     children: [
+      {
+        path: 'login',
+        loadChildren: () =>
+          import('./pages/auth/auth.module').then((m) => m.AuthModule),
+      },
       {
         path: '',
         loadChildren: () =>
           import('./pages/sorter/sorter.module').then((m) => m.SorterModule),
       },
-      // {
-      //   path: 'login',
-      //   loadChildren: () =>
-      //     import('./pages/auth/auth.module').then((m) => m.AuthModule),
-      // },
     ],
   },
   {

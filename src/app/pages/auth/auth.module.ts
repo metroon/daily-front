@@ -8,6 +8,7 @@ import { AuthComponent } from './auth.component';
 import { LoginComponent } from './login/login.component';
 import { NewPasswordComponent } from './new-password/new-password.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { CreateUserComponent } from './create-user/create-user.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     LoginComponent,
     NewPasswordComponent,
     ForgotPasswordComponent,
+    CreateUserComponent,
   ],
   imports: [
     CommonModule,

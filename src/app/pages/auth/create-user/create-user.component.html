@@ -1,0 +1,122 @@
+<div class="card mt-4">
+  <div class="card-body">
+    <div class="text-center">
+      <h4>Criar conta</h4>
+    </div>
+    <form class="theme-form" [formGroup]="createUserForm">
+      <div class="form-group">
+        <label for="name" class="form-label">Nome</label>
+        <input
+          class="form-control"
+          formControlName="name"
+          id="name"
+          type="text"
+          required=""
+          placeholder="Nome"
+        />
+
+        <div class="input-error-wrapper">
+          <div
+            *ngIf="
+              createUserForm.controls.name.touched &&
+              createUserForm.controls.name.errors?.required
+            "
+            class="text text-danger mt-1"
+          >
+            Nome é um campo obrigatório
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="name" class="form-label">Foto</label>
+        <div class="input-group">
+          <input
+            type="file"
+            formControlName="picture"
+            class="form-control"
+            id="picture"
+            (change)="processFile($event)"
+          />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email" class="form-label">Email</label>
+        <input
+          class="form-control"
+          formControlName="email"
+          id="email"
+          type="email"
+          required=""
+          placeholder="Email"
+        />
+
+        <div class="input-error-wrapper">
+          <div
+            *ngIf="
+              createUserForm.controls.email.touched &&
+              createUserForm.controls.email.errors?.required
+            "
+            class="text text-danger mt-1"
+          >
+            Email é um campo obrigatório
+          </div>
+          <div
+            *ngIf="
+              createUserForm.controls.email.touched &&
+              createUserForm.controls.email.errors?.email
+            "
+            class="text text-danger mt-1"
+          >
+            Email inválido
+          </div>
+        </div>
+      </div>
+      <div class="form-group position-relative">
+        <label for="password" class="form-label">Senha</label>
+        <input
+          class="form-control"
+          type="password"
+          formControlName="password"
+          id="password"
+          required=""
+          placeholder="Senha"
+        />
+        <div class="input-error-wrapper">
+          <div
+            *ngIf="
+              createUserForm.controls.password.touched &&
+              createUserForm.controls.password.errors?.required
+            "
+            class="text text-danger mt-1"
+          >
+            Senha é um campo obrigatório
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <a
+          class="primary-text bold"
+          href="javascript:void()"
+          routerLink="/login"
+          >Ir a tela de login</a
+        >
+      </div>
+      <div class="form-group form-row mt-3 mb-0 mx-0">
+        <button
+          class="btn btn-primary btn-block btn-lg"
+          [disabled]="!createUserForm.valid || authService.showLoader"
+          (click)="createUser()"
+        >
+          <span *ngIf="!authService.showLoader">Criar usuário</span>
+          <app-loader
+            *ngIf="authService.showLoader"
+            color="white"
+            size="30px"
+          ></app-loader>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

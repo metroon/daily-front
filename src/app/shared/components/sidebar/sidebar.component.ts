@@ -1,6 +1,7 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { AuthService } from '../../services/auth/auth.service';
+import { LocalStorageService } from '../../services/local-storage.service';
 import { NavService, Menu } from '../../services/nav.service';
 
 @Component({
@@ -13,11 +14,13 @@ export class SidebarComponent {
   public menuItems: Menu[] = [];
   public url: any;
   public fileurl: any;
+  public user;
 
   constructor(
     private router: Router,
     public navService: NavService,
-    private authservice: AuthService
+    private authservice: AuthService,
+    private localStorageService: LocalStorageService
   ) {
     this.navService.items.subscribe((menuItems) => {
       this.menuItems = menuItems;
@@ -38,6 +41,10 @@ export class SidebarComponent {
         }
       });
     });
+  }
+
+  ngOnInit() {
+    this.user = this.localStorageService.getUser();
   }
 
   // Active Nave state

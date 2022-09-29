@@ -4,7 +4,9 @@ import { Router } from '@angular/router';
 import { lastValueFrom } from 'rxjs';
 import { Member } from 'src/app/shared/models/member';
 import { MemberRaw } from 'src/app/shared/models/member-raw';
+import { LocalStorageService } from 'src/app/shared/services/local-storage.service';
 import { TeamService } from 'src/app/shared/services/team.service';
+import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-race',
@@ -48,17 +50,21 @@ export class RaceComponent implements OnInit {
   public usedColors = [...this.colors];
 
   public racing = false;
-  public minRaceTime = 8;
   public scoreTimeOut;
   public percentage = 0;
+
+  public minRaceTime = 7;
+  public bigRaceLimit = 12;
 
   constructor(
     private teamService: TeamService,
     private router: Router,
-    private titleService: Title
+    private titleService: Title,
+    private localStorage: LocalStorageService,
+    private userService: UserService
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.teamName = this.router.url.split('/').pop();
     this.getTeam(this.teamName);
     this.setAppTitle();
@@ -71,14 +77,19 @@ export class RaceComponent implements OnInit {
   }
 
   async getTeam(teamName) {
-    let team = await lastValueFrom(this.teamService.get(teamName));
+    let team;
+    if (this.isOpenId(this.teamName)) {
+      team = await this.getOrganizationUsers(this.teamName);
+    } else {
+      team = await lastValueFrom(this.teamService.get(teamName));
+    }
     this.team = team
       .sort((a, b) => a.name - b.name)
       .map((mr: MemberRaw, i) => {
         let member = new Member(
           mr.id,
           mr.name,
-          mr.picture,
+          mr.picture.replace(/\s/g, '%20'),
           this.getRadomColor()
         );
         member.order = i;
@@ -225,5 +236,16 @@ export class RaceComponent implements OnInit {
 
   goToOriginal() {
     this.router.navigate(['/' + this.teamName]);
+  }
+
+  async getOrganizationUsers(organizationId) {
+    return await lastValueFrom(
+      this.userService.getOrganizationUser(organizationId)
+    );
+  }
+
+  isOpenId(id) {
+    let checkForHexRegExp = /^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i;
+    return checkForHexRegExp.test(id);
   }
 }
