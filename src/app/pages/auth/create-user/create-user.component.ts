@@ -24,7 +24,8 @@ export class CreateUserComponent implements OnInit {
   ) {
     this.createUserForm = fb.group({
       name: ['', Validators.required],
-      picture: ['', Validators.required],
+      picture: [''],
+      imageData: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
     });
@@ -37,7 +38,9 @@ export class CreateUserComponent implements OnInit {
   createUser() {
     if (this.createUserForm.invalid) return;
     this.authService.showLoader = true;
-    this.authService.createUser(this.createUserForm.value).subscribe({
+    let payload = this.createUserForm.value;
+    payload.picture = '';
+    this.authService.createUser(payload).subscribe({
       next: (res) => {
         this.toastr.success('Usuário criado com sucesso!');
         this.router.navigate(['/login']);
@@ -48,5 +51,14 @@ export class CreateUserComponent implements OnInit {
         this.authService.showLoader = false;
       },
     });
+  }
+
+  processFile(event: any) {
+    let file = event.target.files[0];
+    let reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = (alo) => {
+      this.createUserForm.controls['imageData'].setValue(reader.result);
+    };
   }
 }

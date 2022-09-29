@@ -27,29 +27,20 @@
           </div>
         </div>
       </div>
-      <div class="form-group">
-        <label for="picture" class="form-label">URL da imagem</label>
-        <input
-          class="form-control"
-          formControlName="picture"
-          id="picture"
-          type="text"
-          required=""
-          placeholder="URL da imagem"
-        />
 
-        <div class="input-error-wrapper">
-          <div
-            *ngIf="
-              createUserForm.controls.picture.touched &&
-              createUserForm.controls.picture.errors?.required
-            "
-            class="text text-danger mt-1"
-          >
-            URL da imagem é um campo obrigatório
-          </div>
+      <div class="form-group">
+        <label for="name" class="form-label">Foto</label>
+        <div class="input-group">
+          <input
+            type="file"
+            formControlName="picture"
+            class="form-control"
+            id="picture"
+            (change)="processFile($event)"
+          />
         </div>
       </div>
+
       <div class="form-group">
         <label for="email" class="form-label">Email</label>
         <input
