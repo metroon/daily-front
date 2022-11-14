@@ -16,23 +16,23 @@
   },
   {
     "id": "4",
+    "name": "Anderson",
+    "picture": "https://iili.io/ytTLXI.png"
+  },
+  {
+    "id": "5",
     "name": "Antonio",
     "picture": "https://iili.io/EQewFf.png"
   },
   {
-    "id": "5",
+    "id": "6",
     "name": "Cassiano",
     "picture": "https://iili.io/EQeh6G.png"
   },
   {
-    "id": "6",
+    "id": "7",
     "name": "Daniel",
     "picture": "https://iili.io/WDGUkG.png"
-  },
-  {
-    "id": "7",
-    "name": "Mendes",
-    "picture": "https://iili.io/S8LUDg.png"
   },
   {
     "id": "8",
