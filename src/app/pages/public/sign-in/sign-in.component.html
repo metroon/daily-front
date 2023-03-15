@@ -106,7 +106,7 @@
                 <div class="row mt-4">
                     <div class="col-12">
                         <div class="form-group">
-                            <label for="name" class="form-label">Foto</label>
+                            <label for="name" class="form-label">Foto *</label>
                             <div class="input-group">
                                 <input type="file" formControlName="picture" class="form-control" id="picture"
                                     (change)="processFile($event)" />
@@ -117,7 +117,11 @@
                 <div class="row mt-4">
                     <div class="col-12 text-center">
                         <button type="submit" class="btn btn-outline-primary text-white btn-background-color ml-3"
-                            (click)="createUser()">
+                            (click)="createUser()" [disabled]="!createUserForm.controls.name.value ||
+                                !createUserForm.controls.email.value ||
+                                !createUserForm.controls.password.value ||
+                                !createUserForm.controls.confirmPassword.value ||
+                                !createUserForm.controls.picture.value">
                             <div class="spinner-border" role="status" *ngIf="showLoader"></div>
                             Enviar
                         </button>
