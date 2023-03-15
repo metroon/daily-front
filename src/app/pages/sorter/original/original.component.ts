@@ -25,19 +25,6 @@ export class OriginalComponent implements OnInit {
     this.teamName = this.router.url.split('/').pop();
     await this.getTeam(this.teamName);
     this.setAppTitle();
-    this.setTemGroups();
-  }
-
-  private setTemGroups() {
-    let teamLines = this.team.length / 8;
-    let startSlice = 0;
-    let endSlice = 8;
-    for (let index = 0; index < teamLines; index++) {
-      console.log(this.team.slice(startSlice, endSlice));
-      this.teamGroup[index] = this.team.slice(startSlice, endSlice);
-      startSlice = endSlice;
-      endSlice = endSlice + (endSlice + 1);
-    }
   }
 
   private setAppTitle() {
