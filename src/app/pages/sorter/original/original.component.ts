@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { TeamService } from 'src/app/shared/services/team.service';
-import { lastValueFrom } from 'rxjs';
-import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-original',
@@ -20,26 +18,13 @@ export class OriginalComponent implements OnInit {
   constructor(
     private teamService: TeamService,
     private router: Router,
-    private titleService: Title,
-    private userService: UserService
+    private titleService: Title
   ) {}
 
   async ngOnInit() {
     this.teamName = this.router.url.split('/').pop();
     await this.getTeam(this.teamName);
     this.setAppTitle();
-    this.setTemGroups();
-  }
-
-  private setTemGroups() {
-    let teamLines = this.team.length / 8;
-    let startSlice = 0;
-    let endSlice = 8;
-    for (let index = 0; index < teamLines; index++) {
-      this.teamGroup[index] = this.team.slice(startSlice, endSlice);
-      startSlice = endSlice;
-      endSlice = endSlice + (endSlice + 1);
-    }
   }
 
   private setAppTitle() {
@@ -49,12 +34,7 @@ export class OriginalComponent implements OnInit {
   }
 
   async getTeam(teamName) {
-    if (this.isOpenId(this.teamName)) {
-      this.team = await this.getOrganizationUsers(this.teamName);
-    } else {
-      this.team = await lastValueFrom(this.teamService.get(teamName));
-    }
-    this.team = this.team
+    this.team = (await this.teamService.get(teamName).toPromise())
       .map((el) => {
         el.isCanceled = false;
         return el;
@@ -97,6 +77,8 @@ export class OriginalComponent implements OnInit {
 
   generateRandom(maxLimit = 100) {
     let rand = Math.random() * maxLimit;
+    console.log(rand); // say 99.81321410836433
+
     rand = Math.floor(rand); // 99
 
     return rand;
@@ -109,16 +91,5 @@ export class OriginalComponent implements OnInit {
 
   goToRace() {
     this.router.navigate(['/race/' + this.teamName]);
-  }
-
-  async getOrganizationUsers(organizationId) {
-    return await lastValueFrom(
-      this.userService.getOrganizationUser(organizationId)
-    );
-  }
-
-  isOpenId(id) {
-    let checkForHexRegExp = /^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i;
-    return checkForHexRegExp.test(id);
   }
 }

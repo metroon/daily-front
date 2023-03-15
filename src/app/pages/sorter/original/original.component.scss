@@ -14,6 +14,23 @@
   text-align: justify;
   grid-gap: 15px;
 
+  &.has-more {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    .img-section {
+      min-width: 160px;
+    }
+    .member-pic {
+      height: 150px;
+      width: 150px;
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+
   &.has-1 {
     margin-top: 150px;
   }
@@ -239,8 +256,8 @@
   .mini-member-pic {
     height: 60px;
     width: 60px;
-    object-fit: cover;
-    object-position: center;
+    object-fit: contain;
+    object-position: bottom;
     border: 2px solid white;
     border-radius: 8px;
 

@@ -122,8 +122,7 @@ $distance: calc(200vw - $car-width - $track-padding);
     height: 100%;
     aspect-ratio: 1/1 !important;
     border: 1px solid white;
-    max-width: 50px;
-    max-height: 50px;
+    max-height: 60px;
     .avatar {
       position: relative;
       width: 100%;
@@ -297,7 +296,6 @@ $distance: calc(200vw - $car-width - $track-padding);
         object-fit: cover;
         object-position: center;
         max-height: 60px;
-        width: 100%;
       }
     }
     p,
