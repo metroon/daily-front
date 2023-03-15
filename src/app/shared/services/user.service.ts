@@ -12,37 +12,41 @@ export class UserService {
 
   constructor(private base: BaseService) {}
 
-  getUser(id) {
+  public getUser(id) {
     return this.base.get(`${this.userUrl}/${id}`);
   }
 
-  getOrganizations(id) {
+  public getOrganizations(id) {
     return this.base.get(`${this.organizationSearchUrl}?UserId=${id}`);
   }
 
-  createOrganization(newOrganization) {
+  public createOrganization(newOrganization) {
     return this.base.post(`${this.organizationUrl}`, newOrganization);
   }
 
-  createMember(newMember) {
+  public createMember(newMember) {
     return this.base.post(`${this.organizationUserUrl}`, newMember);
   }
 
-  editMember(newMember) {
+  public editMember(newMember) {
     return this.base.put(
       `${this.organizationUserUrl}/${newMember.id}`,
       newMember
     );
   }
 
-  removeMember(memberId) {
+  public removeMember(memberId) {
     return this.base.delete(`${this.organizationUserUrl}/${memberId}`);
   }
 
-  getOrganizationUser(id) {
+  public getOrganizationUser(id) {
     return this.base.get(`${this.organizationUserUrl}?OrganizationId=${id}`);
   }
 
+  public createUser(newUser) {
+    return this.base.post('user', newUser);
+  }
+  
   update(id, body) {
     return this.base.put(`${this.userUrl}/${id}`, body);
   }
