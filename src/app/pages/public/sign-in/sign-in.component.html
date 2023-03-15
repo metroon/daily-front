@@ -1,23 +1,24 @@
-
 <!-- nav part start -->
 <div class="naviagtion fixed-top nav-bg">
-  <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-dark p-0">
-      <img src="assets/images/original/logo_horizontal.png" alt="DailyApp" style="width: 148px;">   
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark p-0">
+            <img src="assets/images/original/logo_horizontal.png" alt="DailyApp" style="width: 148px;">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+                aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-      <div class="collapse navbar-collapse" id="navigation">
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link text-white active text-capitalize" routerLink="home" fragment="home">Home</a>
-          </li>
-        </ul>
-        <button class="btn btn-outline-primary text-white ml-3" (click)="navigatetoLogin()">Login</button>
-      </div>
-    </nav>
-  </div>
+            <div class="collapse navbar-collapse" id="navigation">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-white active text-capitalize" routerLink="home" fragment="home">Home</a>
+                    </li>
+                </ul>
+                <button class="btn btn-outline-primary text-white btn-background-color ml-3"
+                    (click)="navigatetoLogin()">Login</button>
+            </div>
+        </nav>
+    </div>
 </div>
 <!-- nav part end -->
 
@@ -31,13 +32,10 @@
                         <label class="ms-4 mb-2">Nome *</label>
                         <input type="text" class="form-control" formControlName="name" id="name" placeholder="Nome">
                         <div class="input-error-wrapper ms-4">
-                            <div
-                                *ngIf="
+                            <div *ngIf="
                                 createUserForm.controls.name.touched &&
                                 createUserForm.controls.name.errors?.required
-                                "
-                                class="text text-danger mt-1"
-                            >
+                                " class="text text-danger mt-1">
                                 Nome é um campo obrigatório
                             </div>
                         </div>
@@ -46,22 +44,16 @@
                         <label class="ms-4 mb-2">E-mail *</label>
                         <input type="text" class="form-control" formControlName="email" id="email" placeholder="E-mail">
                         <div class="input-error-wrapper ms-4">
-                            <div
-                                *ngIf="
+                            <div *ngIf="
                                 createUserForm.controls.email.touched &&
                                 createUserForm.controls.email.errors?.required
-                                "
-                                class="text text-danger mt-1"
-                            >
+                                " class="text text-danger mt-1">
                                 E-mail é um campo obrigatório
                             </div>
-                            <div
-                                *ngIf="
+                            <div *ngIf="
                                 createUserForm.controls.email.touched &&
                                 createUserForm.controls.email.errors?.email
-                                "
-                                class="text text-danger mt-1"
-                            >
+                                " class="text text-danger mt-1">
                                 E-mail inválido
                             </div>
                         </div>
@@ -70,52 +62,42 @@
                 <div class="row mt-4">
                     <div class="col-12 col-lg-6">
                         <label class="ms-4 mb-2">Senha *</label>
-                        <input type="password" class="form-control" formControlName="password" id="password" placeholder="Senha">
+                        <input type="password" class="form-control" formControlName="password" id="password"
+                            placeholder="Senha">
                         <div class="input-error-wrapper ms-4">
-                            <div
-                                *ngIf="
+                            <div *ngIf="
                                 createUserForm.controls.password.touched &&
                                 createUserForm.controls.password.errors?.required
-                                "
-                                class="text text-danger mt-1"
-                            >
+                                " class="text text-danger mt-1">
                                 Senha é um campo obrigatório
                             </div>
-                            <div
-                                *ngIf="
+                            <div *ngIf="
                                 createUserForm.controls.password.value != '' &&
                                 createUserForm.controls.confirmPassword.value != '' &&
                                 createUserForm.controls.password.value !=
                                 createUserForm.controls.confirmPassword.value
-                                "
-                                class="text text-danger mt-1"
-                            >
+                                " class="text text-danger mt-1">
                                 Senha e Confirma Senha devem ser iguais
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-lg-6">
                         <label class="ms-4 mb-2">Confirma senha *</label>
-                        <input type="password" class="form-control" formControlName="confirmPassword" id="confirmPassword" placeholder="Confirma Senha">
+                        <input type="password" class="form-control" formControlName="confirmPassword"
+                            id="confirmPassword" placeholder="Confirma Senha">
                         <div class="input-error-wrapper ms-4">
-                            <div
-                                *ngIf="
+                            <div *ngIf="
                                 createUserForm.controls.confirmPassword.touched &&
                                 createUserForm.controls.confirmPassword.errors?.required
-                                "
-                                class="text text-danger mt-1"
-                            >
+                                " class="text text-danger mt-1">
                                 Confirma Senha é um campo obrigatório
                             </div>
-                            <div
-                                *ngIf="
+                            <div *ngIf="
                                 createUserForm.controls.password.value != '' &&
                                 createUserForm.controls.confirmPassword.value != '' &&
                                 createUserForm.controls.password.value !=
                                 createUserForm.controls.confirmPassword.value
-                                "
-                                class="text text-danger mt-1"
-                            >
+                                " class="text text-danger mt-1">
                                 Senha e Confirma Senha devem ser iguais
                             </div>
                         </div>
@@ -126,21 +108,17 @@
                         <div class="form-group">
                             <label for="name" class="form-label">Foto</label>
                             <div class="input-group">
-                            <input
-                                type="file"
-                                formControlName="picture"
-                                class="form-control"
-                                id="picture"
-                                (change)="processFile($event)"
-                            />
+                                <input type="file" formControlName="picture" class="form-control" id="picture"
+                                    (change)="processFile($event)" />
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row mt-4">
                     <div class="col-12 text-center">
-                        <button type="submit" class="btn btn-primary" (click)="createUser()">
-                        <div class="spinner-border" role="status" *ngIf="showLoader"></div>
+                        <button type="submit" class="btn btn-outline-primary text-white btn-background-color ml-3"
+                            (click)="createUser()">
+                            <div class="spinner-border" role="status" *ngIf="showLoader"></div>
                             Enviar
                         </button>
                     </div>
