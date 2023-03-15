@@ -25,7 +25,7 @@ export class CreateUserComponent implements OnInit {
     this.createUserForm = fb.group({
       name: ['', Validators.required],
       picture: [''],
-      imageData: ['', Validators.required],
+      imageData: [''],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
     });
