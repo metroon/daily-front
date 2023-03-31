@@ -64,7 +64,7 @@ export class DashboardComponent implements OnInit {
   }
 
   goToRace(org) {
-    this.router.navigate(['/race/' + org.OrganizationId]);
+    this.router.navigate(['/sorter', 'race', org.OrganizationId]);
   }
 
   goToOriginal(org) {

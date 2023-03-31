@@ -1,482 +1,199 @@
-<!-- nav part start -->
-<div class="naviagtion naviagtion-white fixed-top transition">
-  <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light p-0">
-      <a class="navbar-brand p-0" href="https://demo.themefisher.com/agico/index.html">
-        <img src="assets/images/original/logo_horizontal.png" alt="DailyApp" style="width: 148px;">
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
-        aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse text-center" id="navigation">
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link text-dark active text-capitalize" routerLink="" fragment="home">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-dark text-capitalize" routerLink="" fragment="sobreContato">Sobre</a>
-          </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link text-dark text-capitalize" href="https://demo.themefisher.com/agico/services.html">services</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link text-dark text-capitalize dropdown-toggle" href="https://demo.themefisher.com/agico/#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">pages</a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item text-color" href="https://demo.themefisher.com/agico/team.html">Our Team</a>
-              <a class="dropdown-item text-color" href="https://demo.themefisher.com/agico/pricing.html">Our Pricing</a>
-              <a class="dropdown-item text-color" href="https://demo.themefisher.com/agico/career.html">Our Career</a>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-dark text-capitalize" href="https://demo.themefisher.com/agico/blog.html">blog</a>
-          </li> -->
-          <li class="nav-item">
-            <a class="nav-link text-dark text-capitalize" routerLink="" fragment="sobreContato">Contato</a>
-          </li>
-        </ul>
-        <button class="btn btn-outline-primary text-white me-3" (click)="navigatetoSignIn()">Criar Conta</button>
-        <button class="btn btn-outline-primary text-white ml-3" (click)="navigatetoLogin()">Login</button>
-      </div>
-    </nav>
-  </div>
-</div>
-<!-- nav part end -->
-
-<!-- banner -->
-<section class="hero-area hero-area-lg position-relative" id='home'>
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-lg-6 text-center text-lg-left mb-4 mb-lg-0">
-        <h1 class="text-dark position-relative">Monte uma sala para o seu time<span class="watermark">Daily</span></h1>
-        <p class="text-dark mb-4">E faça de suas daily meetings um momento mais descontraído</p>
-        <ul class="list-inline">
-          <!-- <li class="list-inline-item mx-1 my-2">
-            <a href="https://demo.themefisher.com/agico/#" class="btn btn-primary">
-              <img src="assets/images/home/google-play-white.png" class="img-fluid mr-2 rounded" alt="play-store"> Google Play</a>
-          </li> -->
-          <!-- <li class="list-inline-item mx-1 my-2">
-            <a href="https://demo.themefisher.com/agico/#" class="btn btn-outline-primary">
-              Criar conta
-            </a>
-          </li> -->
-        </ul>
-      </div>
-      <div class="col-lg-6">
-        <img src="assets/images/home/banner-3.png" class="img-fluid w-100 shadow rounded-lg aos-init aos-animate"
-          alt="app-interface" data-aos="fade-left" data-aos-delay="1000">
-      </div>
-    </div>
-  </div>
-  <img src="assets/images/home/banner-shape.png" class="img-fluid bg-shape-4" alt="shape">
-</section>
-<!-- banner -->
-
-<!-- feature -->
-<section class="position-relative">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0 aos-init aos-animate" data-aos="fade-right" data-aos-duration="1000"
-        data-aos-delay="00">
-        <div class="card border-0 shadow rounded-xs pt-5">
-          <div class="card-body">
-            <i class="fa fa-desktop icon-lg icon-blue icon-bg-blue icon-bg-circle mb-3"></i>
-            <h4 class="mt-4 mb-3">Salas Exclusivas por organização</h4>
-            <p>Times diferentes por organização</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0 aos-init aos-animate" data-aos="fade-right" data-aos-duration="1000"
-        data-aos-delay="100">
-        <div class="card border-0 shadow rounded-xs pt-5">
-          <div class="card-body">
-            <i class="fa fa-gears icon-lg icon-orange icon-bg-orange icon-bg-circle mb-3"></i>
-            <h4 class="mt-4 mb-3">Fácil Customização</h4>
-            <p>Cada um com sua imagem</p>
-          </div>
-        </div>
-      </div>
-      <!-- <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0 aos-init aos-animate" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
-        <div class="card border-0 shadow rounded-xs pt-5">
-          <div class="card-body">
-            <i class="fa fa-shield icon-lg icon-purple icon-bg-purple icon-bg-circle mb-3"></i>
-            <h4 class="mt-4 mb-3">Organização Segura</h4>
-            <p>Lorem ipsum dolor sit amet consectetur elit sed do</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0 aos-init aos-animate" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300">
-        <div class="card border-0 shadow rounded-xs pt-5">
-          <div class="card-body">
-            <i class="fa fa-clock-o icon-lg icon-green icon-bg-green icon-bg-circle mb-3"></i>
-            <h4 class="mt-4 mb-3">Serviço 24 Horas</h4>
-            <p>Lorem ipsum dolor sit amet consectetur elit sed do</p>
-          </div>
-        </div>
-      </div> -->
-    </div>
-  </div>
-  <img src="assets/images/home/dot-1.png" class="img-fluid feature-bg-shape-1" alt="background-dots">
-  <img src="assets/images/home/shape-bg.png" class="img-fluid feature-bg-shape-2" alt="background-shape">
-</section>
-<!-- feature -->
-
-<!-- integration -->
-<!-- <section class="section pb-0">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 pr-lg-5">
-        <img src="assets/images/home/integration-2.png" class="img-fluid aos-init aos-animate" alt="dashboard" data-aos="fade-right">
-      </div>
-      <div class="col-md-6 pl-lg-5">
-        <p class="subtitle aos-init aos-animate" data-aos="fade-up">01</p>
-        <h2 class="section-title aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">Aspernatur aut odit fugit sed quia consetur.</h2>
-        <p class="mb-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">Lorem ipsum dolor sit amet consectetur adipicing elit sed do usmod tempor incididunt.enim ad
-          minim
-          veniam, quis nostrud exer citation ulla mco laboris nisi ut aliquip commodo.</p>
-        <ul class="list-unstyled">
-          <li class="d-flex mb-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="500">
-            <div class="pr-3 pr-lg-5">
-              <i class="fa fa-check text-secondary bg-white shadow icon-sm"></i>
-            </div>
-            <div>
-              <h5>Extreme Security</h5>
-              <p>Lorem ipsum dolor sit amet consectetur elit sed do eiusmod tempor incididunt labore dolore
-                magna.</p>
-            </div>
-          </li>
-          <li class="d-flex aos-init aos-animate" data-aos="fade-up" data-aos-delay="550">
-            <div class="pr-3 pr-lg-5">
-              <i class="fa fa-check text-secondary bg-white shadow icon-sm"></i>
-            </div>
-            <div>
-              <h5>Extreme Security</h5>
-              <p>Lorem ipsum dolor sit amet consectetur elit sed do eiusmod tempor incididunt labore dolore
-                magna.</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section> -->
-
-<!-- <section class="section overflow-hidden">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 pr-lg-5">
-        <p class="subtitle aos-init" data-aos="fade-up">02</p>
-        <h2 class="section-title aos-init" data-aos="fade-up" data-aos-delay="200">Eausmod tempor magna nostrud exercitation</h2>
-        <p data-aos="fade-up" data-aos-delay="300" class="aos-init">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-          et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi
-          aliquip commodo consequat. duis aute.</p>
-        <p class="mb-4 aos-init" data-aos="fade-up" data-aos-delay="400">Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint
-          occaecat cupidatat non proident.</p>
-        <a href="https://demo.themefisher.com/agico/#" class="mb-4 btn btn-outline-primary aos-init" data-aos="fade-up" data-aos-delay="500">read nore</a>
-      </div>
-      <div class="col-md-6 pl-lg-5">
-        <img src="../../../../assets/images/home/integration-3.png" class="img-fluid aos-init" alt="dashboard" data-aos="fade-left" data-aos-delay="200">
-      </div>
-    </div>
-  </div>
-</section> -->
-<!-- integration -->
-
-<!-- download -->
-<section class="section bg-gradient-purple bg-triangles position-relative">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <img class="img-fluid shadow rounded-lg d-block mx-auto" src="assets/images/home/blog-post-3.jpg" alt="clients">
-      </div>
-      <div class="col-md-6">
-        <h1 class="section-title mb-5">Nos ajude a tomar um café</h1>
-        <div class="testimonial-slider-single slick-initialized slick-slider">
-          <div class="slider-item slick-slide slick-cloned" data-slick-index="-1" id="" aria-hidden="true">
-            <p class="mb-4" style="color: white; font-size: 16px;">Faça uma doação para nos ajudar a manter esse projeto
-              e
-              poder tomar um
-              café.</p>
-            <h5 class="text-dark">Nosso PIX</h5>
-            <h6 class="text-color">041141809000110</h6>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- <div class="container">
-    <div class="row">
-      <div class="col-lg-9 mx-auto text-center">
-        <h2 class="section-title text-white">Veja como é fácil</h2>
-        <p class="text-white">No vídeo mostramos como é fácil criar uma Organização e montar um time</p>
-      </div>
-      <div class="col-12 section border-bottom border-gray mb-80">
-        <div class="pulse-container">
-          <div class="pulse-box">
-            <a class="venobox play-icon icon-center vbox-item" data-autoplay="true" data-vbtype="video" href="https://www.youtube.com/watch?v=jrkvirglgaQ"><i class="fa fa-play text-secondary"></i></a>
-            <svg class="pulse-svg" width="90px" height="90px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-              <circle class="circle first-circle" fill="#fff" cx="25" cy="25" r="25"></circle>
-              <circle class="circle second-circle" fill="#fff" cx="25" cy="25" r="25"></circle>
-              <circle class="circle third-circle" fill="#fff" cx="25" cy="25" r="25"></circle>
-              <circle class="circle" fill="#fff" cx="25" cy="25" r="25"> </circle>
-            </svg>
-          </div>
-        </div>
-      </div> -->
-  <!-- parthner -->
-  <!-- <div class="col-12">
-        <h3 class="section-title text-white">Algumas empresas que utilizam</h3>
-        <ul class="list-inline d-flex justify-content-between align-items-center position-relative zindex-1">
-          <li class="list-inline-item"><img class="img-fluid p-2" src="assets/images/home/client-logo-1-alt.png" alt="partner-1"></li>
-          <li class="list-inline-item"><img class="img-fluid p-2" src="assets/images/home/client-logo-2-alt.png" alt="partner-2"></li>
-          <li class="list-inline-item"><img class="img-fluid p-2" src="assets/images/home/client-logo-3-alt.png" alt="partner-3"></li>
-          <li class="list-inline-item"><img class="img-fluid p-2" src="assets/images/home/client-logo-4-alt.png" alt="partner-4"></li>
-          <li class="list-inline-item"><img class="img-fluid p-2" src="assets/images/home/client-logo-5-alt.png" alt="partner-5"></li>
-        </ul>
-      </div> -->
-  <!-- parthner -->
-  <!-- </div>
-  </div> -->
-</section>
-<!-- download -->
-
-<!-- counter -->
-<!-- <section class="bg-light py-5">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-3 col-sm-6 mb-4 mb-md-0 text-center">
-        <p class="h2 text-dark"><span class="counter" data-count="8">0</span>K+</p>
-        <h6 class="text-dark font-weight-normal">Dailys por dia</h6>
-      </div>
-      <div class="col-md-3 col-sm-6 mb-4 mb-md-0 text-center">
-        <p class="h2 text-dark"><span class="counter" data-count="25">0</span>K+</p>
-        <h6 class="text-dark font-weight-normal">Total de usuários satisfeitos</h6>
-      </div>
-      <div class="col-md-3 col-sm-6 mb-4 mb-md-0 text-center">
-        <p class="h2 text-dark"><span class="counter" data-count="30">0</span>+</p>
-        <h6 class="text-dark font-weight-normal">Total de usuários</h6>
-      </div>
-    </div>
-  </div>
-</section> -->
-<!-- counter -->
-
-<!-- testimonial -->
-<!-- <section class="section bg-light">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <img class="img-fluid" src="assets/images/home/blog-post-3.jpg" alt="clients">
-      </div>
-      <div class="col-md-6">
-        <h2 class="section-title mb-5">Nos ajude a tomar um café</h2>
-        <div class="testimonial-slider-single slick-initialized slick-slider">
-          <div class="slider-item slick-slide slick-cloned" data-slick-index="-1" id="" aria-hidden="true" style="width: 330px;" tabindex="-1">
-            <p class="font-italic mb-4">Faça uma doação para nos ajudar a manter esse projeto e poder tomar um café.</p>
-            <h5 class="text-dark">Nosso PIX</h5>
-            <h6 class="text-color">041141809000110</h6>
-          </div>  
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-<!-- testimonial -->
-
-<!-- <section class="section section-lg-bottom"> -->
-<!-- blog -->
-<!-- <div class="container">
-  <div class="row">
-    <div class="col-12">
-      <p class="subtitle">latest news</p>
-      <h2 class="section-title">Learn Form Agico</h2>
-    </div>
-    <div class="col-12">
-      <div class="blog-slider slick-initialized slick-slider"><button class="prevarrow slick-arrow"></button>
-        
-        
-        
-        
-      <div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 3450px; transform: translate3d(-1380px, 0px, 0px);"><div class="px-3 mb-5 slick-slide slick-cloned" style="width: 345px;" tabindex="-1" data-slick-index="-2" id="" aria-hidden="true">
-          <div class="card border-0 shadow rounded-xs">
-            <img src="assets/images/home/blog-post-3.jpg" class="img-fluid card-img-top" alt="post-thumb">
-            <div class="card-body">
-              <p class="card-date">Dec 30, 2018</p>
-              <h5><a class="text-dark" href="https://demo.themefisher.com/agico/blog-details.html" tabindex="-1">Cupidat non proident sunt officia deserunt mollit
-                  anim.</a></h5>
-            </div>
-          </div>
-        </div><div class="px-3 mb-5 slick-slide slick-cloned" style="width: 345px;" tabindex="-1" data-slick-index="-1" id="" aria-hidden="true">
-          <div class="card border-0 shadow rounded-xs">
-            <img src="assets/images/home/blog-post-1.jpg" class="img-fluid card-img-top" alt="post-thumb">
-            <div class="card-body">
-              <p class="card-date">Dec 30, 2018</p>
-              <h5><a class="text-dark" href="https://demo.themefisher.com/agico/blog-details.html" tabindex="-1">Cupidat non proident sunt officia deserunt mollit
-                  anim.</a></h5>
-            </div>
-          </div>
-        </div><div class="px-3 mb-5 slick-slide" style="width: 345px;" tabindex="-1" data-slick-index="0" aria-hidden="true">
-          <div class="card border-0 shadow rounded-xs">
-            <img src="assets/images/home/blog-post-1.jpg" class="img-fluid card-img-top" alt="post-thumb">
-            <div class="card-body">
-              <p class="card-date">Dec 30, 2018</p>
-              <h5><a class="text-dark" href="https://demo.themefisher.com/agico/blog-details.html" tabindex="-1">Cupidat non proident sunt officia deserunt mollit
-                  anim.</a></h5>
-            </div>
-          </div>
-        </div><div class="px-3 mb-5 slick-slide" style="width: 345px;" tabindex="-1" data-slick-index="1" aria-hidden="true">
-          <div class="card border-0 shadow rounded-xs">
-            <img src="assets/images/home/blog-post-2.jpg" class="img-fluid card-img-top" alt="post-thumb">
-            <div class="card-body">
-              <p class="card-date">Dec 30, 2018</p>
-              <h5><a class="text-dark" href="https://demo.themefisher.com/agico/blog-details.html" tabindex="-1">Cupidat non proident sunt officia deserunt mollit
-                  anim.</a></h5>
-            </div>
-          </div>
-        </div><div class="px-3 mb-5 slick-slide slick-current slick-active" style="width: 345px;" tabindex="0" data-slick-index="2" aria-hidden="false">
-          <div class="card border-0 shadow rounded-xs">
-            <img src="assets/images/home/blog-post-3.jpg" class="img-fluid card-img-top" alt="post-thumb">
-            <div class="card-body">
-              <p class="card-date">Dec 30, 2018</p>
-              <h5><a class="text-dark" href="https://demo.themefisher.com/agico/blog-details.html" tabindex="0">Cupidat non proident sunt officia deserunt mollit
-                  anim.</a></h5>
-            </div>
-          </div>
-        </div><div class="px-3 mb-5 slick-slide slick-active" style="width: 345px;" tabindex="0" data-slick-index="3" aria-hidden="false">
-          <div class="card border-0 shadow rounded-xs">
-            <img src="assets/images/home/blog-post-1.jpg" class="img-fluid card-img-top" alt="post-thumb">
-            <div class="card-body">
-              <p class="card-date">Dec 30, 2018</p>
-              <h5><a class="text-dark" href="https://demo.themefisher.com/agico/blog-details.html" tabindex="0">Cupidat non proident sunt officia deserunt mollit
-                  anim.</a></h5>
-            </div>
-          </div>
-        </div><div class="px-3 mb-5 slick-slide slick-cloned" style="width: 345px;" tabindex="-1" data-slick-index="4" id="" aria-hidden="true">
-          <div class="card border-0 shadow rounded-xs">
-            <img src="assets/images/home/blog-post-1.jpg" class="img-fluid card-img-top" alt="post-thumb">
-            <div class="card-body">
-              <p class="card-date">Dec 30, 2018</p>
-              <h5><a class="text-dark" href="https://demo.themefisher.com/agico/blog-details.html" tabindex="-1">Cupidat non proident sunt officia deserunt mollit
-                  anim.</a></h5>
-            </div>
-          </div>
-        </div><div class="px-3 mb-5 slick-slide slick-cloned" style="width: 345px;" tabindex="-1" data-slick-index="5" id="" aria-hidden="true">
-          <div class="card border-0 shadow rounded-xs">
-            <img src="assets/images/home/blog-post-2.jpg" class="img-fluid card-img-top" alt="post-thumb">
-            <div class="card-body">
-              <p class="card-date">Dec 30, 2018</p>
-              <h5><a class="text-dark" href="https://demo.themefisher.com/agico/blog-details.html" tabindex="-1">Cupidat non proident sunt officia deserunt mollit
-                  anim.</a></h5>
-            </div>
-          </div>
-        </div><div class="px-3 mb-5 slick-slide slick-cloned" style="width: 345px;" tabindex="-1" data-slick-index="6" id="" aria-hidden="true">
-          <div class="card border-0 shadow rounded-xs">
-            <img src="assets/images/home/blog-post-3.jpg" class="img-fluid card-img-top" alt="post-thumb">
-            <div class="card-body">
-              <p class="card-date">Dec 30, 2018</p>
-              <h5><a class="text-dark" href="https://demo.themefisher.com/agico/blog-details.html" tabindex="-1">Cupidat non proident sunt officia deserunt mollit
-                  anim.</a></h5>
-            </div>
-          </div>
-        </div><div class="px-3 mb-5 slick-slide slick-cloned" style="width: 345px;" tabindex="-1" data-slick-index="7" id="" aria-hidden="true">
-          <div class="card border-0 shadow rounded-xs">
-            <img src="assets/images/home/blog-post-1.jpg" class="img-fluid card-img-top" alt="post-thumb">
-            <div class="card-body">
-              <p class="card-date">Dec 30, 2018</p>
-              <h5><a class="text-dark" href="https://demo.themefisher.com/agico/blog-details.html" tabindex="-1">Cupidat non proident sunt officia deserunt mollit
-                  anim.</a></h5>
-            </div>
-          </div>
-        </div></div></div><button class="nextarrow slick-arrow"></button></div>
-    </div>
-  </div>
-</div> -->
-<!-- blog -->
-<!-- </section> -->
-
-<!-- subscription -->
-<!-- <section class="subscription bg-white">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <div class="subscription-wrapper">
-          <div class="d-flex position-relative mx-5 justify-content-between align-items-center flex-column flex-md-row text-center text-md-left">
-            <h3 class="flex-fill">Subscribe <br> to our newsletter</h3>
-            <form action="https://demo.themefisher.com/agico/#" class="row flex-fill">
-              <div class="col-lg-7 my-md-2 my-2">
-                <input type="email" class="form-control px-4 border-0 w-100 text-center text-md-left" id="email" placeholder="Your Email" name="email">
-              </div>
-              <div class="col-lg-5 my-md-2 my-2">
-                <button type="submit" class="btn btn-primary btn-lg border-0 w-100">Subscribe Now</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-<!-- subscription -->
-
-<!-- footer part start -->
-<footer class="bg-secondary pt-lg-5">
-  <!-- <div class="section border-bottom border-color" id='sobreContato'>
+<main class="home">
+  <!-- nav part start -->
+  <div class="naviagtion naviagtion-white fixed-top transition">
     <div class="container">
-      <div class="row justify-content-between">
-        <div class="col-md-5 mb-4 mb-md-0 align-items-bottom">
-          <img src="assets/images/original/logo_horizontal.png" style="width: 148px;" class="mb-4">
-          <p class="text-light mb-4">Não sei um texto para colocar aqui no momento, mas só sei dizer que a aplicação é
-            MUITO FODA!.</p>
-          <ul class="list-inline social-icons">
-            <li class="list-inline-item"><a href="http://facebook.com/themefisher" target="_blank"><i
-                  class="fa fa-facebook"></i></a></li>
-            <li class="list-inline-item"><a href="http://twitter.com/themefisher" target="_blank"><i
-                  class="fa fa-twitter"></i></a></li>
-            <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCx9qVW8VF0LmTi4OF2F8YdA/featured"
-                target="_blank"><i class="fa fa-instagram"></i></a></li>
-            <li class="list-inline-item"><a href="http://github.com/themefisher" target="_blank"><i
-                  class="fa fa-linkedin"></i></a></li>
-          </ul>
-        </div>
-        <div id="contato" class="col-lg-3 col-md-4 col-sm-6">
-          <h4 class="text-white mb-4">Contato</h4>
-          <div class="d-flex flex-column text-light">
-            <label>Nome: </label>
-            <input type="text" />
-            <label class="mt-2">E-mail: </label>
-            <input type="text" />
-            <label class="mt-2">Assunto: </label>
-            <textarea></textarea>
-            <button type="submit" class="btn btn-primary btn-lg border-0  mt-3">Enviar</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
-  <!-- footer part end -->
+      <nav class="navbar navbar-expand-lg navbar-light p-0">
+        <a class="navbar-brand p-0" href="#">
+          <img
+            src="assets/images/original/logo_horizontal.png"
+            alt="DailyApp"
+            style="width: 148px"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navigation"
+          aria-controls="navigation"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-  <!-- copyright part start -->
-  <section class="py-4">
+        <div
+          class="collapse navbar-collapse text-center justify-content-md-end"
+          id="navigation"
+        >
+          <button
+            class="btn btn-outline-primary text-white me-3"
+            (click)="navigatetoSignIn()"
+          >
+            Criar Conta
+          </button>
+          <button
+            class="btn btn-outline-primary text-white ml-3"
+            (click)="navigatetoLogin()"
+          >
+            Login
+          </button>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <!-- nav part end -->
+
+  <!-- banner -->
+  <section class="hero-area hero-area-lg position-relative" id="home">
     <div class="container">
       <div class="row align-items-center">
-        <div class="col-md-6 text-center text-md-left">
-          <label class="text-light">Copyright © {{ CurrentYear }}
-            desenvolvido por <a href="http://www.metroon.com.br/" target="_blank">
-              <img src="assets/images/logo_metroon_horizontal.png" style="width: 95px;" />
-            </a>
-          </label>
+        <div class="col-lg-6 text-center text-lg-left mb-4 mb-lg-0">
+          <h1 class="text-dark position-relative">
+            Monte uma sala para o seu time<span class="watermark">Daily</span>
+          </h1>
+          <p class="text-dark mb-4">
+            E faça de suas daily meetings um momento mais descontraído
+          </p>
         </div>
-        <div class="col-md-6 text-md-right text-center">
-          <ul class="list-inline">
-            <li class="list-inline-item"><a href="https://demo.themefisher.com/agico/#" class="text-light">Termos de
-                Serviço</a></li>
-            <li class="list-inline-item">| &nbsp;<a href="https://demo.themefisher.com/agico/#"
-                class="text-light">Politica de Privacidade</a></li>
-          </ul>
+        <div class="col-lg-6">
+          <img
+            src="assets/images/home/banner-3.png"
+            class="img-fluid w-100 shadow rounded-lg aos-init aos-animate"
+            alt="app-interface"
+            data-aos="fade-left"
+            data-aos-delay="1000"
+          />
+        </div>
+      </div>
+    </div>
+    <img
+      src="assets/images/home/banner-shape.png"
+      class="img-fluid bg-shape-4"
+      alt="shape"
+    />
+  </section>
+  <!-- banner -->
+
+  <!-- feature -->
+  <section class="position-relative">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div
+          class="col-lg-3 col-sm-6 mb-4 mb-lg-0 aos-init aos-animate"
+          data-aos="fade-right"
+          data-aos-duration="1000"
+          data-aos-delay="00"
+        >
+          <div class="card border-0 shadow rounded-xs pt-5">
+            <div class="card-body">
+              <i
+                class="fa fa-desktop icon-lg icon-blue icon-bg-blue icon-bg-circle mb-3"
+              ></i>
+              <h4 class="mt-4 mb-3">Salas Exclusivas por organização</h4>
+              <p>Times diferentes por organização</p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-lg-3 col-sm-6 mb-4 mb-lg-0 aos-init aos-animate"
+          data-aos="fade-right"
+          data-aos-duration="1000"
+          data-aos-delay="100"
+        >
+          <div class="card border-0 shadow rounded-xs pt-5">
+            <div class="card-body">
+              <i
+                class="fa fa-gears icon-lg icon-orange icon-bg-orange icon-bg-circle mb-3"
+              ></i>
+              <h4 class="mt-4 mb-3">Fácil Customização</h4>
+              <p>Cada um com sua imagem</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <img
+      src="assets/images/home/dot-1.png"
+      class="img-fluid feature-bg-shape-1"
+      alt="background-dots"
+    />
+    <img
+      src="assets/images/home/shape-bg.png"
+      class="img-fluid feature-bg-shape-2"
+      alt="background-shape"
+    />
+  </section>
+  <!-- feature -->
+
+  <!-- download -->
+  <section class="section bg-gradient-purple bg-triangles position-relative">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <img
+            class="img-fluid d-block mx-auto"
+            src="assets/images/home/blog-post-3.png"
+            alt="clients"
+          />
+        </div>
+        <div class="col-md-6">
+          <h1 class="section-title mb-5">Nos ajude a tomar um café</h1>
+          <div class="testimonial-slider-single slick-initialized slick-slider">
+            <div
+              class="slider-item slick-slide slick-cloned"
+              data-slick-index="-1"
+              id=""
+              aria-hidden="true"
+            >
+              <p class="mb-4" style="color: white; font-size: 16px">
+                Faça uma doação para nos ajudar a manter esse projeto e poder
+                tomar um café.
+              </p>
+              <h5 class="text-dark">Nosso PIX</h5>
+              <h6 class="text-color">041141809000110</h6>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
-  <!-- copyright part end -->
-</footer>
+  <footer class="bg-secondary pt-lg-5">
+    <section class="py-4">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center text-md-left">
+            <label class="text-light"
+              >Copyright © {{ CurrentYear }} desenvolvido por
+              <a href="http://www.metroon.com.br/" target="_blank">
+                <img
+                  src="assets/images/logo_metroon_horizontal.png"
+                  style="width: 95px"
+                />
+              </a>
+            </label>
+          </div>
+          <div class="col-md-6 text-md-right text-center">
+            <ul class="list-inline">
+              <li class="list-inline-item">
+                <a
+                  href="https://demo.themefisher.com/agico/#"
+                  class="text-light"
+                  >Termos de Serviço</a
+                >
+              </li>
+              <li class="list-inline-item">
+                | &nbsp;<a
+                  href="https://demo.themefisher.com/agico/#"
+                  class="text-light"
+                  >Politica de Privacidade</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- copyright part end -->
+  </footer>
+</main>

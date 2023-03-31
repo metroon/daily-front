@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: 'https://projeto-daily-bff.herokuapp.com',
+  baseUrl: 'http://207.154.208.238:3001',
 };
