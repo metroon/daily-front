@@ -102,8 +102,20 @@
           type="text"
           class="form-control"
           formControlName="name"
+          (keyup)="setReferenceByName()"
           id="name"
           placeholder="Digite aqui o nome do time"
+        />
+      </div>
+      <div class="col-12 mb-3">
+        <label for="reference" class="form-label">Referencia</label>
+        <input
+          type="text"
+          class="form-control"
+          (keyup)="setReference()"
+          formControlName="reference"
+          id="reference"
+          placeholder="@xxx"
         />
       </div>
       <div class="col-12 mb-3">

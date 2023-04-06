@@ -21,7 +21,7 @@ main.home {
   h4,
   h5,
   h6 {
-    color: #242f3e !important;
+    color: #242f3e;
     font-family: "Poppins", sans-serif;
     text-transform: capitalize;
     font-weight: 500;
@@ -264,10 +264,6 @@ main.home {
 
   .bg-gray-light {
     background: #f5f6f7;
-  }
-
-  .bg-secondary {
-    background: #15192b !important;
   }
 
   .badge-light {

@@ -39,6 +39,7 @@ export class DashboardComponent implements OnInit {
     this.newOrganizationForm = this.fb.group({
       UserId: [userId, Validators.required],
       name: ['', Validators.required],
+      reference: ['', Validators.required],
       logo: [''],
     });
   }
@@ -142,5 +143,26 @@ export class DashboardComponent implements OnInit {
         (m) => m.id != memberId && m._id != memberId
       );
     });
+  }
+
+  setReferenceByName() {
+    let name = this.newOrganizationForm.controls['name'].value;
+    this.newOrganizationForm.controls['reference'].setValue(
+      this.simplifyString(name)
+    );
+  }
+
+  setReference() {
+    let reference = this.newOrganizationForm.controls['reference'].value;
+    this.newOrganizationForm.controls['reference'].setValue(
+      this.simplifyString(reference)
+    );
+  }
+
+  simplifyString(str: string) {
+    return str
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '');
   }
 }
