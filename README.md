@@ -1,7 +1,7 @@
-<h1 align="center">Angular Starterkit Dragon Venture Capital</h1>
+<h1 align="center">Angular Starterkit </h1>
 
 <p align="center">
-  <img src="src\assets\images\logo\logo-sm.svg" alt="dragon-logo" width="360px" height="120px"/>
+<!--   <img src="src\assets\images\logo\logo-sm.svg" alt="dragon-logo" width="360px" height="120px"/> -->
   <br/>
   <br/>
 </p>
