@@ -1,37 +1,38 @@
 [
   {
     "id": "1",
-    "name": "Sérgio",
-    "picture": "https://pps.whatsapp.net/v/t61.24694-24/259174238_419272216568925_2024037804292701689_n.jpg?ccb=11-4&oh=01_AdSKhAaH9KQZJy6U4DCjGlwoEkXp4xxdwb5xcxKaXjfqKA&oe=64945BB7"
-  },
+    "name": "Ariel",
+    "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAg5LuMq0M-fnFhVAjoCFtynP3oQP2xxaYGA&usqp=CAU"
+  }
   {
     "id": "2",
-    "name": "Kaio",
-    "picture": "https://pps.whatsapp.net/v/t61.24694-24/65473733_685346798649214_7234714969495830528_n.jpg?ccb=11-4&oh=01_AdSA4LJmvrX8CDJeX6giGhaxOBwv8q-dDYhSIFUqNrFbOA&oe=64962F03"
-  },
+    "name": "Giovani",
+    "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQum3Eqax5TMMLanuri42cSJk-z0D5fQSOSNg&usqp=CAU"
+  }
   {
     "id": "3",
-    "name": "Giovani",
-    "picture": "https://pps.whatsapp.net/v/t61.24694-24/56835837_312882906017045_3150559541855256576_n.jpg?ccb=11-4&oh=01_AdSX7l14HEFjaoYQBT9FDLvrOj-LFjkb7xtF1JhaRYAUtA&oe=649CCA1E"
-  },
+    "name": "Luiz",
+    "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHPkgCqFrI5ziLqLblR31d1z6pJHSchJrXvw&usqp=CAU"
+  }
   {
     "id": "4",
-    "name": "Ariel",
-    "picture": "https://pps.whatsapp.net/v/t61.24694-24/350823523_576084118007824_5985495838118322684_n.jpg?ccb=11-4&oh=01_AdSj-ySNLAA7HUoNNeRx35er3zSabQtTmQH0UrI0lntwPQ&oe=649CA872"
-  },
+    "name": "Mayara",
+    "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCBefHJtoE7ZTsWjh05NDFId85Dzplx13hLw&usqp=CAU"
+  }
   {
     "id": "5",
-    "name": "Mayara",
-    "picture": "https://media.licdn.com/dms/image/C4D03AQHjClCecDQknQ/profile-displayphoto-shrink_100_100/0/1656442734807?e=1692835200&v=beta&t=MCHHK492ob_IDcASjUz3S3eCIv_L8nZ_VAdoq1XLRFQ"
-  },
+    "name": "Kaio",
+    "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQae-or2BbfXG4r7amDuwqhVTwTtabw3S5bJw&usqp=CAU"
+  }
   {
     "id": "6",
-    "name": "Luiz",
-    "picture": "https://pps.whatsapp.net/v/t61.24694-24/312284308_1395477271219795_2500513925748574947_n.jpg?ccb=11-4&oh=01_AdTo0LroCsdj2IvWt_INdAQwuB-M3Gp-0Lh-ahjLcrH-cw&oe=649CC258"
-  },
+    "name": "Sérgio",
+    "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbvY4Ec-KOledtys_LFrZfQT49fYQslljbCQ&usqp=CAU"
+  }
   {
     "id": "7",
     "name": "Tiago",
-    "picture": "https://ca.slack-edge.com/TFN6RMAJG-U02057B4W31-557ffa775071-512"
+    "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbvY4Ec-KOledtys_LFrZfQT49fYQslljbCQ&usqp=CAU"
   }
+  
 ]
