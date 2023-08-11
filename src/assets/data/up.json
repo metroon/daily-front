@@ -3,36 +3,35 @@
     "id": "1",
     "name": "Ariel",
     "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAg5LuMq0M-fnFhVAjoCFtynP3oQP2xxaYGA&usqp=CAU"
-  }
+  },
   {
     "id": "2",
     "name": "Giovani",
     "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQum3Eqax5TMMLanuri42cSJk-z0D5fQSOSNg&usqp=CAU"
-  }
-  {
-    "id": "3",
-    "name": "Luiz",
-    "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHPkgCqFrI5ziLqLblR31d1z6pJHSchJrXvw&usqp=CAU"
-  }
-  {
-    "id": "4",
-    "name": "Mayara",
-    "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCBefHJtoE7ZTsWjh05NDFId85Dzplx13hLw&usqp=CAU"
-  }
+  },
   {
     "id": "5",
     "name": "Kaio",
     "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQae-or2BbfXG4r7amDuwqhVTwTtabw3S5bJw&usqp=CAU"
-  }
+  },
+  {
+    "id": "3",
+    "name": "Luiz",
+    "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHPkgCqFrI5ziLqLblR31d1z6pJHSchJrXvw&usqp=CAU"
+  },
+  {
+    "id": "4",
+    "name": "Mayara",
+    "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCBefHJtoE7ZTsWjh05NDFId85Dzplx13hLw&usqp=CAU"
+  },
   {
     "id": "6",
     "name": "Sérgio",
     "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbvY4Ec-KOledtys_LFrZfQT49fYQslljbCQ&usqp=CAU"
-  }
+  },
   {
     "id": "7",
     "name": "Tiago",
     "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbvY4Ec-KOledtys_LFrZfQT49fYQslljbCQ&usqp=CAU"
   }
-  
 ]
