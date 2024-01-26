@@ -14,8 +14,7 @@
       <img
         class="img-60 rounded-circle"
         [src]="
-          user?.picture ||
-          'https://avatars.dicebear.com/api/initials/' + user.name + '.svg'
+          user?.picture || 'https://api.dicebear.com/7.x/initials/svg?seed=' + user.name
         "
         alt="#"
       />

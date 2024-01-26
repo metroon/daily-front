@@ -1,12 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { lastValueFrom } from 'rxjs';
+import { lastValueFrom, map } from 'rxjs';
 import { ModalComponent } from 'src/app/shared/components/modal/modal.component';
 import { ModalData } from 'src/app/shared/models/modal-data';
 import { LocalStorageService } from 'src/app/shared/services/local-storage.service';
 import { UserService } from 'src/app/shared/services/user.service';
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -28,6 +27,30 @@ export class DashboardComponent implements OnInit {
     name: '',
     picture: '',
   };
+
+  public members = [
+    {
+      OrganizationId: '63113debcc81d808191f0a81',
+      id: '63115b5ece189de7b527cd51',
+      name: 'Teste',
+      picture:
+        'https://s2.glbimg.com/YaWQl0kD1Lxx3l-n59Fk4mBreQ8=/0x0:620x461/984x0/smart/filters:strip_icc()/s.glbimg.com/jo/g1/f/original/2015/01/23/133.jpg',
+    },
+    {
+      OrganizationId: '63113debcc81d808191f0a81',
+      id: '63115b6d393a3692f2659af2',
+      name: 'Teste',
+      picture:
+        'https://s2.glbimg.com/YaWQl0kD1Lxx3l-n59Fk4mBreQ8=/0x0:620x461/984x0/smart/filters:strip_icc()/s.glbimg.com/jo/g1/f/original/2015/01/23/133.jpg',
+    },
+    {
+      OrganizationId: '63113debcc81d808191f0a81',
+      id: '63115dc60672c79b1c77f2d0',
+      name: 'Teste',
+      picture:
+        'https://s2.glbimg.com/YaWQl0kD1Lxx3l-n59Fk4mBreQ8=/0x0:620x461/984x0/smart/filters:strip_icc()/s.glbimg.com/jo/g1/f/original/2015/01/23/133.jpg',
+    },
+  ];
 
   constructor(
     private userService: UserService,
@@ -86,7 +109,7 @@ export class DashboardComponent implements OnInit {
 
   async openAddMember(organization) {
     console.log(organization);
-    this.newMember.OrganizationId = organization.OrganizationId;
+    this.newMember.OrganizationId = organization.id;
     this.modalMemberData.title =
       'Adicionar Participante em ' + organization.name;
     this.modalMemberData.confirmButtonLabel = 'Adicionar';
@@ -134,7 +157,7 @@ export class DashboardComponent implements OnInit {
   }
 
   setPicture(selectedAvatar) {
-    this.newMember.picture = `https://avatars.dicebear.com/api/${selectedAvatar}/${this.newMember.name}.svg`;
+    this.newMember.picture = `https://api.dicebear.com/7.x/${selectedAvatar}/svg?seed=${this.newMember.name}`;
   }
 
   removeMember(memberId, organization) {
