@@ -1,6 +1,6 @@
 <div class="container-fluid">
-  <div class="row" *ngFor="let org of organizations">
-    <div class="col-12 d-flex align-items-center justify-content-between">
+  <div class="row mb-3" *ngFor="let org of organizations">
+    <div class="col-12 d-flex align-items-center justify-content-between mb-4">
       <div class="d-flex align-items-center">
         <img
           class="img-radius img-50 me-3 rounded-circle"
@@ -9,7 +9,7 @@
             'https://api.dicebear.com/7.x/initials/svg?seed=' + org.name
           "
         />
-        <h5 class="m-0 text-uppercase bold">{{ org.name }}</h5>
+        <h4 class="m-0 text-uppercase fw-bold">{{ org.name }}</h4>
       </div>
 
       <div class="d-flex align-items-center">
@@ -27,35 +27,33 @@
         </button>
       </div>
     </div>
-    <div class="col-12 col-md-3" *ngFor="let user of members">
+    <div class="col-12 col-md-2" *ngFor="let user of org.organizationUser">
       <div
         class="card card-full d-flex align-items-center justify-content-center clickable"
       >
-        <div class="d-flex align-items-center justify-content-between mb-1">
-          <div class="d-flex align-items-center">
+        <div class="d-flex flex-column align-items-center justify-content-between mb-1 p-4">
+          <div class="d-flex align-items-center flex-column align-items-center justify-content-center mb-2">
             <img
-              class="img-radius img-30 me-3 rounded-circle"
+              class="img-radius img-100 mb-3 rounded-circle"
               [src]="
                 user?.picture ||
                 'https://api.dicebear.com/7.x/micah/svg?seed=' + user.name
               "
               alt=""
             />
-            <h6 class="m-0 clickable" (click)="openEditMember(user, org)">
-              {{ user.name }}
-            </h6>
+            <h5 class="clickable mb-3 text-center" (click)="openEditMember(user, org)">{{ user.name }}</h5>
           </div>
           <div class="d-flex align-items-center">
             <button
               *ngIf="user.id || user._id"
-              class="btn btn-pill btn-outline-light btn-xs"
+              class="btn btn-pill btn-outline-light"
               (click)="openEditMember(user, org)"
             >
               <i class="fa fa-pencil"></i>
             </button>
             <button
               *ngIf="user.id || user._id"
-              class="btn btn-pill btn-outline-light btn-xs ms-1"
+              class="btn btn-pill btn-outline-light ms-1"
               (click)="removeMember(user.id || user._id, org)"
             >
               <i class="fa fa-times"></i>
@@ -64,14 +62,12 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-12 col-md-3">
-        <div
-          class="card card-full d-flex align-items-center justify-content-center clickable"
-          (click)="openAddTeam()"
-        >
-          <h1 class="my-5 primary-text"><i class="fa fa-plus"></i></h1>
-        </div>
+    <div class="col-12 col-md-2">
+      <div
+        class="card card-full d-flex align-items-center justify-content-center clickable"
+        (click)="openAddTeam()"
+      >
+        <h1 class="my-5 primary-text"><i class="fa fa-plus"></i></h1>
       </div>
     </div>
   </div>
