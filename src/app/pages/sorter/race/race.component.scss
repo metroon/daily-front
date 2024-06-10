@@ -318,6 +318,10 @@ $distance: calc(200vw - $car-width - $track-padding);
       gap: 5px;
       .leaderboard-row {
         margin: 0;
+        border: 2px white solid;
+        &:nth-child(even) {
+          transform: translateY(50%);
+        }
       }
     }
   }
