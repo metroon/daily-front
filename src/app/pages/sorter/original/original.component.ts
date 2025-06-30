@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { TeamService } from 'src/app/shared/services/team.service';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-original',
@@ -34,13 +35,19 @@ export class OriginalComponent implements OnInit {
   }
 
   async getTeam(teamName) {
-    this.team = (await this.teamService.get(teamName).toPromise())
-      .map((el) => {
-        el.isCanceled = false;
-        return el;
+    lastValueFrom(this.teamService.get(teamName))
+      .then((team) => {
+        this.team = team
+          .map((el) => {
+            el.isCanceled = false;
+            return el;
+          })
+          .sort((a, b) => (a.name > b.name ? 1 : -1));
+        this.teamCopy = this.team.filter((el) => !el.isCanceled);
       })
-      .sort((a, b) => (a.name > b.name ? 1 : -1));
-    this.teamCopy = this.team.filter((el) => !el.isCanceled);
+      .catch((error) => {
+        this.router.navigate(['not-found']);
+      });
   }
 
   startSorter() {

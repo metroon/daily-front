@@ -71,22 +71,27 @@ export class RaceComponent implements OnInit {
   }
 
   async getTeam(teamName) {
-    let team = await lastValueFrom(this.teamService.get(teamName));
-    this.team = team
-      .sort((a, b) => a.name - b.name)
-      .map((mr: MemberRaw, i) => {
-        let member = new Member(
-          mr.id,
-          mr.name,
-          mr.picture,
-          this.getRadomColor()
-        );
-        member.order = i;
-        return member;
+    lastValueFrom(this.teamService.get(teamName))
+      .then((team) => {
+        this.team = team
+          .sort((a, b) => a.name - b.name)
+          .map((mr: MemberRaw, i) => {
+            let member = new Member(
+              mr.id,
+              mr.name,
+              mr.picture,
+              this.getRadomColor()
+            );
+            member.order = i;
+            return member;
+          });
+        this.teamCopy = [...this.team.filter((el) => !el.isCanceled)];
+        this.teamSorted = this.teamCopy.map((m) => ({ ...m }));
+        this.percentage = Math.floor((100 / team.length) * 100) / 100;
+      })
+      .catch((error) => {
+        this.router.navigate(['/not-found']);
       });
-    this.teamCopy = [...this.team.filter((el) => !el.isCanceled)];
-    this.teamSorted = this.teamCopy.map((m) => ({ ...m }));
-    this.percentage = Math.floor((100 / team.length) * 100) / 100;
   }
 
   run() {
